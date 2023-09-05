@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 from datetime import datetime, timezone
-import seaborn as sns
+
 import plotly.express as px
 import plotly.io as pio
 pio.renderers.default = "browser"
@@ -15,7 +15,6 @@ import pymongo
 import json
 import requests
 
-import gnews
 
 import pytz
 import time
