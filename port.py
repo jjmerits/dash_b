@@ -37,7 +37,7 @@ if client_ip in allowed_ips:
     st.success('Access granted from IP: ' + client_ip)
 
     # Excel 파일 경로
-    excel_file_path = r'C:\Users\NHWM\Desktop\dash.xlsm'
+    excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.xlsm'
     sheet_name = 'dashboard'
 
     # Excel 파일 읽기
