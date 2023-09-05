@@ -35,7 +35,7 @@ st.title('Model Portfolio')
 
 # Excel 파일 경로
 url = "https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv"
-st.write("DB password:", st.secrets["ADDRESS"])
+st.write("DB password:", st.secrets.db_credentials.ADDRESS)
 #excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
 #sheet_name = 'dash'
 
