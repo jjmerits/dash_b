@@ -13,7 +13,6 @@ pio.renderers.default = "browser"
 import plotly.graph_objects as go
 import pymongo
 import json
-import requests
 
 
 import pytz
@@ -30,34 +29,31 @@ st.set_page_config(layout='wide',initial_sidebar_state="expanded")
 st.title('Model Portfolio')
 
 # 클라이언트 IP 주소 확인
-client_ip = socket.gethostbyname(socket.gethostname())
+#client_ip = socket.gethostbyname(socket.gethostname())
 
 # IP 주소 확인 및 권한 부여
-if client_ip in allowed_ips:
-    st.success('Access granted from IP: ' + client_ip)
 
-    # Excel 파일 경로
-    url = "https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv"
-    st.write("DB password:", st.secrets["ADDRESS"])
-    #excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
-    #sheet_name = 'dash'
+# Excel 파일 경로
+url = "https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv"
+st.write("DB password:", st.secrets["ADDRESS"])
+#excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
+#sheet_name = 'dash'
 
-    # Excel 파일 읽기
-    try:
-        #df = pd.read_excel(excel_file_path, sheet_name=sheet_name).fillna('')
-        #df = pd.read_excel(excel_file_path).fillna('')
-        df = pd.read_csv(url)
-        df = df.fillna('')
-        df_style = df.style.apply(lambda row: ['background-color: lightgreen' if row['Port'] == 1 else '' for _, row in df.iterrows()], axis=1)
-        df = df.astype(str)
-        df = df.to_html(escape=False,index=False)
+# Excel 파일 읽기
+try:
+    #df = pd.read_excel(excel_file_path, sheet_name=sheet_name).fillna('')
+    #df = pd.read_excel(excel_file_path).fillna('')
+    df = pd.read_csv(url)
+    df = df.fillna('')
+    df_style = df.style.apply(lambda row: ['background-color: lightgreen' if row['Port'] == 1 else '' for _, row in df.iterrows()], axis=1)
+    df = df.astype(str)
+    df = df.to_html(escape=False,index=False)
         
-    except Exception as e:
-        df = pd.DataFrame(columns=['No Excel Sheet Found'])
+except Exception as e:
+    df = pd.DataFrame(columns=['No Excel Sheet Found'])
 
-    # 데이터 표시
-    st.write(df, unsafe_allow_html=True)
-    #st.dataframe(df)
+# 데이터 표시
+st.write(df, unsafe_allow_html=True)
+#st.dataframe(df)
 
-else:
-    st.error('Access denied. Your IP is not allowed.')
+
