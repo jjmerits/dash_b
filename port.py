@@ -27,6 +27,7 @@ import socket
 allowed_ips = ['121.65.247.11', '10.88.116.16', '127.0.0.1']
 
 # Streamlit 애플리케이션 시작
+st.set_page_config(layout='wide')
 st.title('Excel Sheet Viewer')
 
 # 클라이언트 IP 주소 확인
