@@ -34,9 +34,9 @@ st.title('Model Portfolio')
 # IP 주소 확인 및 권한 부여
 
 # Excel 파일 경로
-url = "https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv"
+
 st.write("DB password:", st.secrets.db_credentials.ADDRESS)
-#excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
+#excel_file_path =st.secrets.db_credentials.ADDRESS
 #sheet_name = 'dash'
 
 # Excel 파일 읽기
