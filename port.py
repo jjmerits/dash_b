@@ -49,11 +49,14 @@ if client_ip in allowed_ips:
         #df = pd.read_excel(excel_file_path).fillna('')
         df = pd.read_csv(url)
         df = df.astype(str)
+        df = df.to_html(escape=False,index=False)
+        
     except Exception as e:
         df = pd.DataFrame(columns=['No Excel Sheet Found'])
 
     # 데이터 표시
-    st.dataframe(df)
+    st.write(df, unsafe_allow_html=True)
+    #st.dataframe(df)
 
 else:
     st.error('Access denied. Your IP is not allowed.')
