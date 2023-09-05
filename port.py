@@ -36,6 +36,7 @@ st.title('Model Portfolio')
 # Excel 파일 경로
 
 st.write("DB password:", st.secrets.db_credentials.ADDRESS)
+url = st.secrets.db_credentials.ADDRESS
 #excel_file_path =st.secrets.db_credentials.ADDRESS
 #sheet_name = 'dash'
 
