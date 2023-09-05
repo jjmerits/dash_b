@@ -37,13 +37,16 @@ if client_ip in allowed_ips:
     st.success('Access granted from IP: ' + client_ip)
 
     # Excel 파일 경로
-    excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
-    sheet_name = 'dash'
+    url = 'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
+ 
+    #excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
+    #sheet_name = 'dash'
 
     # Excel 파일 읽기
     try:
-        df = pd.read_excel(excel_file_path, sheet_name=sheet_name).fillna('')
+        #df = pd.read_excel(excel_file_path, sheet_name=sheet_name).fillna('')
         #df = pd.read_excel(excel_file_path).fillna('')
+        df = pd.read_csv(url)
         df = df.astype(str)
     except Exception as e:
         df = pd.DataFrame(columns=['No Excel Sheet Found'])
