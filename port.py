@@ -38,8 +38,8 @@ if client_ip in allowed_ips:
     st.success('Access granted from IP: ' + client_ip)
 
     # Excel 파일 경로
-    url = st.secrets["ADDRESS"]
- 
+    url = https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv
+    st.write("DB password:", st.secrets["ADDRESS"])
     #excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
     #sheet_name = 'dash'
 
