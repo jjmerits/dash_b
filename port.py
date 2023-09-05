@@ -38,7 +38,7 @@ if client_ip in allowed_ips:
     st.success('Access granted from IP: ' + client_ip)
 
     # Excel 파일 경로
-    url = address
+    url = st.secrets.credentials.address
  
     #excel_file_path = r'https://raw.githubusercontent.com/jjmerits/Dashboard/main/dash.csv'
     #sheet_name = 'dash'
