@@ -4,7 +4,5 @@ numpy
 matplotlib
 plotly
 datetime
-seaborn
 pymongo
-gnews
 socket
