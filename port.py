@@ -45,6 +45,7 @@ try:
     #df = pd.read_excel(excel_file_path).fillna('')
     df = pd.read_csv(url)
     df = df.fillna('')
+    df['Value'] = df['Value'].apply(lambda x: '{:,.0f}'.format(x) if isinstance(x, (int, float)) and not pd.isnull(x) else x)
     df_style = df.style.apply(lambda row: ['background-color: lightgreen' if row['Port'] == 1 else '' for _, row in df.iterrows()], axis=1)
     df = df.astype(str)
     df = df.to_html(escape=False,index=False)
