@@ -49,6 +49,7 @@ try:
     test_df = test_df.iloc[1:]
     test_df = test_df.drop(test_df.columns[1:6], axis=1)
     test_df = test_df.dropna(subset=['NKY'])
+    test_df = test_df.dropna(subset=['JPN_Size'])
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
     # Filter out weekends (assuming Saturday and Sunday are weekends)
     test_df = test_df[(test_df['DATES'].dt.dayofweek != 5) & (test_df['DATES'].dt.dayofweek != 6)]
