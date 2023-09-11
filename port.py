@@ -80,6 +80,11 @@ fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KO
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return'], name='KR_Port_Return'))
 
+fig = make_subplots(rows=1, cols=2, subplot_titles=("Chart 1", "Chart 2"))
+
+# Add the individual charts to the grid
+fig.add_trace(fig.data[0], row=1, col=1)
+fig.add_trace(fig1.data[0], row=1, col=2)
 
 # Update x-axis to treat 'DATES' as a date
 fig.update_xaxes(type='category', title_text='Date')
