@@ -47,11 +47,13 @@ try:
     test_df = pd.read_csv(url_1)
     test_df.columns = test_df.iloc[0]
     test_df = test_df.iloc[1:]
+    test_df = test_df.iloc[:, 6:]
+    test_df = test_df.dropna(subset=['NKY'])
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
     # Filter out weekends (assuming Saturday and Sunday are weekends)
     test_df = test_df[(test_df['DATES'].dt.dayofweek != 5) & (test_df['DATES'].dt.dayofweek != 6)]
     # Define the new column names as a list
-    new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSPI_Daily(%)',  'KOSDAQ150', 'KOSPI_Daily(%)','JPN_Size','JPN_Return','KR_Size','KR_Return','TW_Size','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)']
+    new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSDAQ_Daily(%)','TWSE', 'TWSE_Daily(%)','JPN_Size','JPN_Return','KR_Size','KR_Return','TW_Size','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)']
     # Assign the new column names to the DataFrame
     test_df.columns = new_column_names
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
