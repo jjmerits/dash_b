@@ -54,6 +54,7 @@ try:
     new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSPI_Daily(%)',  'KOSDAQ150', 'KOSPI_Daily(%)','JPN_Size','JPN_Return','KR_Size','KR_Return','TW_Size','TW_Return']
     # Assign the new column names to the DataFrame
     test_df.columns = new_column_names
+    test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
         
 except Exception as e:
