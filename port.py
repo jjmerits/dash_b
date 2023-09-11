@@ -67,7 +67,7 @@ fig.update_xaxes(title_text='Date')
 fig.update_yaxes(title_text='Values')
 
 # Display the chart in the Streamlit app
-#st.plotly_chart(fig)
+st.plotly_chart(fig)
 
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
