@@ -87,8 +87,8 @@ fig2.update_xaxes(type='category', title_text='Date')
 
 
 # Display the chart in the Streamlit app
-st.plotly_chart(fig1, use_container_width=True)
-st.plotly_chart(fig2, use_container_width=True)
+st.pyplot(fig1, use_container_width=True)
+st.pyplot(fig2, use_container_width=True)
 
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
