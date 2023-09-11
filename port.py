@@ -5,23 +5,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 from datetime import datetime, timezone
-
 import plotly.express as px
 import plotly.io as pio
-pio.renderers.default = "browser"
-
 import plotly.graph_objects as go
 import pymongo
 import json
-
-
 import pytz
 import time
-import streamlit as st
-import pandas as pd
 import socket
-import plotly.express as px
-
 
 # 지정된 IP 주소 리스트
 allowed_ips = ['121.65.247.11', '10.88.116.16', '127.0.0.1']
