@@ -65,7 +65,7 @@ except Exception as e:
 
 # 데이터 표시
 #st.title('Vs benchmark chart')
-#st.write("Data loaded successfully")
+st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a layout with two columns
 
 
