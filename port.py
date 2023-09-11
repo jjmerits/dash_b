@@ -86,7 +86,7 @@ fig1.update_xaxes(type='category', title_text='Date')
 fig2.update_xaxes(type='category', title_text='Date')
 
 # Create a layout with two columns
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 
 # Display the chart in the Streamlit app
 col1.pyplot(fig1, use_container_width=True)
