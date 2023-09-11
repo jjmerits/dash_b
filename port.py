@@ -70,9 +70,11 @@ except Exception as e:
 
 
 # Create a time series bar chart
+st.title('Japan Market')
 fig1 = go.Figure()
 
 # Add bar traces for 'NKY' and 'KOSPI200'
+
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
 
@@ -80,6 +82,7 @@ fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_
 fig1.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig1)
 
+st.title('Korea Market')
 fig2 = go.Figure()
 
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
@@ -89,7 +92,7 @@ fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return(%)'], name='KR_Po
 fig2.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig2)
 
-
+st.title('Taiwan Market')
 fig3 = go.Figure()
 
 fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TWSE_Daily(%)'], name='TWSE'))
