@@ -71,8 +71,15 @@ st.write("Data loaded successfully")
 fig = go.Figure()
 
 # Add bar traces for 'NKY' and 'KOSPI200'
-fig.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY'))
+fig.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
 fig.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
+
+fig1 = go.Figure()
+
+fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
+fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
+fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return'], name='KR_Port_Return'))
+
 
 # Update x-axis to treat 'DATES' as a date
 fig.update_xaxes(type='category', title_text='Date')
