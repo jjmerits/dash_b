@@ -78,7 +78,7 @@ with col1:
     fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
    
     fig1.update_xaxes(type='category', title_text='Date')
-    plotly_chart(fig1, use_container_width=True)
+    st.plotly_chart(fig1, use_container_width=True)
 
 with col2:
     fig2 = go.Figure()
@@ -88,7 +88,7 @@ with col2:
     fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return'], name='KR_Port_Return'))
     
     fig2.update_xaxes(type='category', title_text='Date')
-    plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(fig2, use_container_width=True)
 
 
 
