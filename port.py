@@ -63,9 +63,17 @@ except Exception as e:
 # 데이터 표시
 st.title('Time Series Chart (Excluding Weekends)')
 st.write("Data loaded successfully. Here's the chart:")
-fig = px.bar(test_df, x='DATES', y=['NKY', 'KOSPI200'], title='Bar Chart')
-fig.update_xaxes(type='category', title_text='Date')  # Set x-axis as a category
-fig.update_yaxes(title_text='Values')
+
+# Create a time series bar chart
+fig = go.Figure()
+
+# Add bar traces for 'NKY' and 'KOSPI200'
+fig.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY'], name='NKY'))
+fig.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI200'], name='KOSPI200'))
+
+# Update x-axis to treat 'DATES' as a date
+fig.update_xaxes(type='category', title_text='Date')
+
 
 # Display the chart in the Streamlit app
 st.plotly_chart(fig)
