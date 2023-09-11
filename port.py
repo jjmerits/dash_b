@@ -58,12 +58,12 @@ except Exception as e:
 # 데이터 표시
 st.title('Time Series Chart (Excluding Weekends)')
 st.write("Data loaded successfully. Here's the chart:")
-fig = px.bar(test_df, x='DATES', y=[test_df.columns[0], test_df.columns[2]], title='Bar Chart')
-fig.update_xaxes(title_text='Date')
-fig.update_yaxes(title_text='Values')
+#fig = px.bar(test_df, x='DATES', y=[test_df.columns[0], test_df.columns[2]], title='Bar Chart')
+#fig.update_xaxes(title_text='Date')
+#fig.update_yaxes(title_text='Values')
 
 # Display the chart in the Streamlit app
-st.plotly_chart(fig)
+#st.plotly_chart(fig)
 
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
