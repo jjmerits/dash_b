@@ -138,12 +138,6 @@ st.plotly_chart(fig)
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
 
-fig.update_yaxes(title_text='Values')
 
-# Display the chart in the Streamlit app
-st.plotly_chart(fig)
-
-st.write(df, unsafe_allow_html=True)
-#st.dataframe(df)
 
 
