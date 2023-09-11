@@ -99,7 +99,7 @@ fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TWSE_Daily(%)'], name='TWSE
 fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Return(%)'], name='TW_Port_Return'))
 
 fig3.update_xaxes(type='category', title_text='Date')
-st.plotly_chart(fig2)
+st.plotly_chart(fig3)
 
 
 
