@@ -67,28 +67,25 @@ except Exception as e:
 #st.title('Time Series Chart')
 #st.write("Data loaded successfully")
 # Create a layout with two columns
-col1, col2 = st.columns(2)
+
+
 # Create a time series bar chart
+fig1 = go.Figure()
 
+# Add bar traces for 'NKY' and 'KOSPI200'
+fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
+fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
 
-with col1:
-    fig1 = go.Figure()
-    # Add bar traces for 'NKY' and 'KOSPI200'
-    fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
-    fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
-   
-    fig1.update_xaxes(type='category', title_text='Date')
-    st.plotly_chart(fig1, use_container_width=True)
+# Update x-axis to treat 'DATES' as a date
+fig1.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig1)
 
-with col2:
-    fig2 = go.Figure()
+#fig2 = go.Figure()
 
-    fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
-    fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
-    fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return'], name='KR_Port_Return'))
-    
-    fig2.update_xaxes(type='category', title_text='Date')
-    st.plotly_chart(fig2, use_container_width=True)
+#fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
+#fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
+#fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return'], name='KR_Port_Return'))
+
 
 
 
