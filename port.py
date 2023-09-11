@@ -80,11 +80,14 @@ fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_
 fig1.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig1)
 
-#fig2 = go.Figure()
+fig2 = go.Figure()
 
-#fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
-#fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
-#fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return'], name='KR_Port_Return'))
+fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
+fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
+fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return'], name='KR_Port_Return'))
+
+fig2.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig2)
 
 
 
