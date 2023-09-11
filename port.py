@@ -80,18 +80,15 @@ fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KO
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return'], name='KR_Port_Return'))
 
-fig = make_subplots(rows=1, cols=2, subplot_titles=("Chart 1", "Chart 2"))
-
-# Add the individual charts to the grid
-fig.add_trace(fig1.data[0], row=1, col=1)
-fig.add_trace(fig2.data[0], row=1, col=2)
 
 # Update x-axis to treat 'DATES' as a date
-fig.update_xaxes(type='category', title_text='Date')
+fig1.update_xaxes(type='category', title_text='Date')
+fig2.update_xaxes(type='category', title_text='Date')
 
 
 # Display the chart in the Streamlit app
-st.plotly_chart(fig)
+st.plotly_chart(fig1, use_container_width=True)
+st.plotly_chart(fig2, use_container_width=True)
 
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
