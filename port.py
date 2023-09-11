@@ -64,13 +64,13 @@ except Exception as e:
     df = pd.DataFrame(columns=['No Excel Sheet Found'])
 
 # 데이터 표시
-st.title('Vs benchmark chart')
+#st.title('Vs benchmark chart')
 #st.write("Data loaded successfully")
 # Create a layout with two columns
 
 
 # Create a time series bar chart
-#st.title('Japan Market')
+st.write('Japan Market')
 fig1 = go.Figure()
 
 # Add bar traces for 'NKY' and 'KOSPI200'
