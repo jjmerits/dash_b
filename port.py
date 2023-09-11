@@ -50,6 +50,10 @@ try:
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
     # Filter out weekends (assuming Saturday and Sunday are weekends)
     test_df = test_df[(test_df['DATES'].dt.dayofweek != 5) & (test_df['DATES'].dt.dayofweek != 6)]
+    # Define the new column names as a list
+    new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSPI_Daily(%)',  'KOSDAQ150', 'KOSPI_Daily(%)','JPN_Size','JPN_Return','KR_Size','KR_Return','TW_Size','TW_Return']
+    # Assign the new column names to the DataFrame
+    test_df.columns = new_column_names
 
         
 except Exception as e:
@@ -58,9 +62,9 @@ except Exception as e:
 # 데이터 표시
 st.title('Time Series Chart (Excluding Weekends)')
 st.write("Data loaded successfully. Here's the chart:")
-#fig = px.bar(test_df, x='DATES', y=[test_df.columns[0], test_df.columns[2]], title='Bar Chart')
-#fig.update_xaxes(title_text='Date')
-#fig.update_yaxes(title_text='Values')
+fig = px.bar(test_df, x='DATES', y=['NKY', 'KOSPI200'], title='Bar Chart')
+fig.update_xaxes(title_text='Date')
+fig.update_yaxes(title_text='Values')
 
 # Display the chart in the Streamlit app
 #st.plotly_chart(fig)
