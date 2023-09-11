@@ -64,13 +64,13 @@ except Exception as e:
     df = pd.DataFrame(columns=['No Excel Sheet Found'])
 
 # 데이터 표시
-#st.title('Time Series Chart')
+st.title('Vs benchmark chart')
 #st.write("Data loaded successfully")
 # Create a layout with two columns
 
 
 # Create a time series bar chart
-st.title('Japan Market')
+#st.title('Japan Market')
 fig1 = go.Figure()
 
 # Add bar traces for 'NKY' and 'KOSPI200'
@@ -82,7 +82,7 @@ fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_
 fig1.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig1)
 
-st.title('Korea Market')
+#st.title('Korea Market')
 fig2 = go.Figure()
 
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
@@ -92,7 +92,7 @@ fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return(%)'], name='KR_Po
 fig2.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig2)
 
-st.title('Taiwan Market')
+#st.title('Taiwan Market')
 fig3 = go.Figure()
 
 fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TWSE_Daily(%)'], name='TWSE'))
