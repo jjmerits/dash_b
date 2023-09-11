@@ -64,8 +64,8 @@ except Exception as e:
     df = pd.DataFrame(columns=['No Excel Sheet Found'])
 
 # 데이터 표시
-st.title('Time Series Chart')
-st.write("Data loaded successfully")
+#st.title('Time Series Chart')
+#st.write("Data loaded successfully")
 # Create a layout with two columns
 col1, col2 = st.columns(2)
 # Create a time series bar chart
