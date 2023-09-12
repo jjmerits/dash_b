@@ -107,11 +107,12 @@ fig4 = go.Figure()
 fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
 fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Korea'))
 fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Taiwan'))
-##fig4.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY'], mode='lines', name='NKY225'))
+fig4.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY'], mode='lines', name='NKY225',yaxis='y2'))
 
 
 fig4.update_xaxes(type='category', title_text='Date')
-
+# Define the right y-axis title
+fig4.update_yaxes(title_text='INDEX', secondary_y=True)
 st.plotly_chart(fig4)
 
 
