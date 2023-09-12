@@ -101,6 +101,16 @@ fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Return(%)'], name='TW_Po
 fig3.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig3)
 
+st.write('Port Size by Market (Won)')
+fig4 = go.Figure()
+
+fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
+fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Korea'))
+fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Taiwan'))
+
+fig4.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig4)
+
 
 
 
