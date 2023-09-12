@@ -111,7 +111,7 @@ fig4.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY'], mode='lines', na
 
 
 fig4.update_xaxes(type='category', title_text='Date')
-fig4.update_yaxes(title_text='Size (Won)', secondary_y=False)
+fig4.update_yaxes(title_text='Size (Won)')
 fig4.update_yaxes(title_text='INDEX', secondary_y=True)
 st.plotly_chart(fig4)
 
