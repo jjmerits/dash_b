@@ -62,6 +62,7 @@ try:
     new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSDAQ_Daily(%)','TWSE', 'TWSE_Daily(%)','JPN_Size','KR_Size','TW_Size','JPN_Return','KR_Return','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)']
     # Assign the new column names to the DataFrame
     test_df.columns = new_column_names
+    test_df['JPN_Cul_Return(%)'] = test_df['JPN_Return']/test_df['JPN_Size'].max()
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
@@ -125,7 +126,7 @@ st.write('Port Return(%)')
 
 fig5 = go.Figure()
 
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Return']/test_df['JPN_Size'].max(), mode='lines', name='Japan'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cul_Return(%)'], mode='lines', name='Japan'))
 #fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Return(%)'], mode='lines', name='Korea'))
 
 
