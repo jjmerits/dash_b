@@ -45,6 +45,7 @@ try:
     df = df.to_html(escape=False,index=False)
 
     test_df = pd.read_csv(url_1)
+    print(test_df)
     test_df.columns = test_df.iloc[0]
     test_df = test_df.iloc[1:]
     test_df = test_df.drop(test_df.columns[1:6], axis=1)
@@ -72,7 +73,7 @@ st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a time series bar chart
 st.write('Japan Market')
 fig1 = go.Figure()
-print(test_df)
+
 # Add bar traces for 'NKY' and 'KOSPI200'
 
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
