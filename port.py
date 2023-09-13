@@ -120,6 +120,19 @@ fig4.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig4)
 
 
+st.write('Port Return(%)')
+
+fig5 = go.Figure()
+
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], mode='lines', name='Japan'))
+
+
+fig5.update_xaxes(type='category', title_text='Date')
+
+
+st.plotly_chart(fig5)
+
+
 
 
 
