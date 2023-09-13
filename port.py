@@ -72,7 +72,7 @@ st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a time series bar chart
 st.write('Japan Market')
 fig1 = go.Figure()
-
+print(test_df)
 # Add bar traces for 'NKY' and 'KOSPI200'
 
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
