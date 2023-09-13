@@ -28,9 +28,10 @@ st.title('Model Portfolio')
 
 # Excel 파일 경로
 
-url = st.secrets.db_credentials.ADDRESS
+#url = st.secrets.db_credentials.ADDRESS
+url = 'https://raw.githubusercontent.com/jjmerits/Dashboard/master/dash.csv'
 #url_1 = st.secrets.db_credentials.ADDRESS_1
-url_1="https://raw.githubusercontent.com/jjmerits/Dashboard/master/com.csv"
+url_1='https://raw.githubusercontent.com/jjmerits/Dashboard/master/com.csv'
 #excel_file_path =st.secrets.db_credentials.ADDRESS
 #sheet_name = 'dash'
 
