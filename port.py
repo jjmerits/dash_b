@@ -29,7 +29,8 @@ st.title('Model Portfolio')
 # Excel 파일 경로
 
 url = st.secrets.db_credentials.ADDRESS
-url_1 = st.secrets.db_credentials.ADDRESS_1
+#url_1 = st.secrets.db_credentials.ADDRESS_1
+url_1="https://raw.githubusercontent.com/jjmerits/Dashboard/master/com.csv"
 #excel_file_path =st.secrets.db_credentials.ADDRESS
 #sheet_name = 'dash'
 
@@ -38,7 +39,7 @@ try:
     #df = pd.read_excel(excel_file_path, sheet_name=sheet_name).fillna('')
     #df = pd.read_excel(excel_file_path).fillna('')
     df = pd.read_csv(url)
-    print(df)
+    #print(df)
     df = df.fillna('')
     df['Value'] = df['Value'].apply(lambda x: '{:,.0f}'.format(x) if isinstance(x, (int, float)) and not pd.isnull(x) else x)
     df_style = df.style.apply(lambda row: ['background-color: lightgreen' if row['Port'] == 1 else '' for _, row in df.iterrows()], axis=1)
