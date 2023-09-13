@@ -70,9 +70,9 @@ except Exception as e:
 #st.title('Vs benchmark chart')
 st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a layout with two columns
+st.write(df, unsafe_allow_html=True)
+st.write(test_df, unsafe_allow_html=True)
 
-print(df)
-print(test_df)
 # Create a time series bar chart
 st.write('Japan Market')
 fig1 = go.Figure()
