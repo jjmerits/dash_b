@@ -154,7 +154,7 @@ fig6 = go.Figure()
 
 fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='NKY_Cumulative_Return'))
 fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSPI_Cumulative_Return'], mode='lines', name='KOSPI200_Cumulative_Return'))
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return)'], mode='lines', name='KOSDAQ150_Cumulative_Return'))
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return'], mode='lines', name='KOSDAQ150_Cumulative_Return'))
 fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TWSE_Cumulative_Return'], mode='lines', name='TWSE_Cumulative_Return'))
 
 
