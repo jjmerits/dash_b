@@ -128,7 +128,7 @@ st.write('Port Return(%)')
 fig5 = go.Figure()
 
 fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cul_Return(%)'], mode='lines', name='Japan'))
-#fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cul_Return(%)'], mode='lines', name='Korea'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cul_Return(%)'], mode='lines', name='Korea'))
 
 
 fig5.update_xaxes(type='category', title_text='Date')
