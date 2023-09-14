@@ -64,6 +64,8 @@ try:
     test_df.columns = new_column_names
     test_df['JPN_Cul_Return(%)'] = pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce').max()
     test_df['KR_Cul_Return(%)'] = pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['KR_Size'].str.replace(',', ''), errors='coerce').max()
+    test_df['TW_Cul_Return(%)'] = pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce').max()
+    test_df['PORT_Cul_Return(%)'] = (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce')) /  pd.to_numeric(test_df['Size_Sum'].str.replace(',', ''), errors='coerce').max()
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
@@ -129,6 +131,8 @@ fig5 = go.Figure()
 
 fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cul_Return(%)'], mode='lines', name='Japan'))
 fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cul_Return(%)'], mode='lines', name='Korea'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_Cul_Return(%)'], mode='lines', name='Taiwan'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cul_Return(%)'], mode='lines', name='PORT'))
 
 
 fig5.update_xaxes(type='category', title_text='Date')
