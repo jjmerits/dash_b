@@ -62,10 +62,10 @@ try:
     new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSDAQ_Daily(%)','TWSE', 'TWSE_Daily(%)','JPN_Size','KR_Size','TW_Size','JPN_Return','KR_Return','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)']
     # Assign the new column names to the DataFrame
     test_df.columns = new_column_names
-    test_df['JPN_Cul_Return(%)'] = pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce').max()
-    test_df['KR_Cul_Return(%)'] = pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['KR_Size'].str.replace(',', ''), errors='coerce').max()
-    test_df['TW_Cul_Return(%)'] = pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce').max()
-    test_df['PORT_Cul_Return(%)'] = (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce')) /  pd.to_numeric(test_df['Size_Sum'].str.replace(',', ''), errors='coerce').max()
+    test_df['JPN_Cum_Return(%)'] = pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce').max()
+    test_df['KR_Cum_Return(%)'] = pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['KR_Size'].str.replace(',', ''), errors='coerce').max()
+    test_df['TW_Cum_Return(%)'] = pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce').max()
+    test_df['PORT_Cum_Return(%)'] = (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce')) /  pd.to_numeric(test_df['Size_Sum'].str.replace(',', ''), errors='coerce').max()
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
@@ -129,10 +129,10 @@ st.write('Port Return(%)')
 
 fig5 = go.Figure()
 
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cul_Return(%)'], mode='lines', name='Japan'))
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cul_Return(%)'], mode='lines', name='Korea'))
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_Cul_Return(%)'], mode='lines', name='Taiwan'))
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cul_Return(%)'], mode='lines', name='PORT'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines', name='Japan'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cum_Return(%)'], mode='lines', name='Korea'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_Cum_Return(%)'], mode='lines', name='Taiwan'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'], mode='lines', name='PORT'))
 
 
 fig5.update_xaxes(type='category', title_text='Date')
