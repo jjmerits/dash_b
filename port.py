@@ -152,10 +152,10 @@ st.write('Index Cumulative Return(%)')
 
 fig6 = go.Figure()
 
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='NKY_Cumulative_Return'))
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSPI_Cumulative_Return'], mode='lines', name='KOSPI200_Cumulative_Return'))
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return'], mode='lines', name='KOSDAQ150_Cumulative_Return'))
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TWSE_Cumulative_Return'], mode='lines', name='TWSE_Cumulative_Return'))
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='NKY'))
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSPI_Cumulative_Return'], mode='lines', name='KOSPI200'))
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return'], mode='lines', name='KOSDAQ150'))
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TWSE_Cumulative_Return'], mode='lines', name='TWSE'))
 
 
 fig6.update_xaxes(type='category', title_text='Date')
