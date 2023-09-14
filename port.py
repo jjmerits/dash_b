@@ -142,8 +142,26 @@ st.plotly_chart(fig5)
 
 
 
+test_df['NKY_Cumulative_Return'] = (1 + pd.to_numeric(test_df['NKY_Daily(%)'])).cumprod() - 1
+test_df['KOSPI_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSPI_Daily(%)'])).cumprod() - 1
+test_df['KOSDAQ_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSDAQ_Daily(%)'])).cumprod() - 1
+test_df['TWSE_Cumulative_Return'] = (1 + pd.to_numeric(test_df['TWSE_Daily(%)'])).cumprod() - 1
 
 
+st.write('Index Cumulative Return(%)')
+
+fig6 = go.Figure()
+
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='NKY_Cumulative_Return'))
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSPI_Cumulative_Return'], mode='lines', name='KOSPI200_Cumulative_Return'))
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return)'], mode='lines', name='KOSDAQ150_Cumulative_Return'))
+fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TWSE_Cumulative_Return'], mode='lines', name='TWSE_Cumulative_Return'))
+
+
+fig6.update_xaxes(type='category', title_text='Date')
+
+
+st.plotly_chart(fig6)
 
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
