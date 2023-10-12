@@ -69,7 +69,7 @@ try:
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
-    test_df['JP_Port-BM'] = pd.to_numeric(test_df['JPN_Return(%'].str.replace(',', ''), errors='coerce') -pd.to_numeric(test_df['NKY_Daily(%)'].str.replace(',', ''), errors='coerce') 
+    test_df['JP_Port-BM'] = pd.to_numeric(test_df['JPN_Return(%'].str.replace(',', ''), errors='coerce') 
         
 except Exception as e:
     df = pd.DataFrame(columns=['No Excel Sheet Found'])
