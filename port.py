@@ -73,6 +73,8 @@ try:
     test_df['TWSE_Cumulative_Return'] = (1 + pd.to_numeric(test_df['TWSE_Daily(%)'])).cumprod() - 1
 
     test_df['JP_LS'] = test_df['JPN_Cum_Return(%)'] - test_df['NKY_Cumulative_Return']
+    test_df['KR_LS'] = test_df['KR_Cum_Return(%)'] - (test_df['KOSPI_Cumulative_Return'] + test_df['KOSDAQ_Cumulative_Return'])/2
+    test_df['TW_LS'] = test_df['TW_Cum_Return(%)'] - test_df['TWSE_Cumulative_Return']
     
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
@@ -108,6 +110,7 @@ fig2 = go.Figure()
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return(%)'], name='KR_Port_Return'))
+fig2.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_LS'], mode='lines', name='KR_Port-BM'))
 
 fig2.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig2)
@@ -117,6 +120,7 @@ fig3 = go.Figure()
 
 fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TWSE_Daily(%)'], name='TWSE'))
 fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Return(%)'], name='TW_Port_Return'))
+fig3.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_LS'], mode='lines', name='TW_Port-BM'))
 
 fig3.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig3)
