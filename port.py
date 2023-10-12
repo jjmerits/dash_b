@@ -181,18 +181,34 @@ fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Return(%)'], name='TW_Po
 fig3.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_LS'], mode='lines', name='TW_Port-BM'))
 
 fig3.update_xaxes(type='category', title_text='Date')
+fig3.update(
+    layout=dict(
+        width=950  # Set the width to 800 pixels
+    )
+)
 st.plotly_chart(fig3)
-
-fig8 = go.Figure()
-fig8.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Taiwan'))
-fig8.update_xaxes(type='category', title_text='Date')
-st.plotly_chart(fig8)
 
 fig9 = go.Figure()
 fig9.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_Cum_Return(%)'], mode='lines', name='Taiwan'))
 fig9.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TWSE_Cumulative_Return'], mode='lines', name='TWSE'))
 fig9.update_xaxes(type='category', title_text='Date')
+fig9.update(
+    layout=dict(
+        width=900  # Set the width to 800 pixels
+    )
+)
 st.plotly_chart(fig9)
+
+
+fig8 = go.Figure()
+fig8.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Taiwan'))
+fig8.update_xaxes(type='category', title_text='Date')
+fig8.update(
+    layout=dict(
+        width=800  # Set the width to 800 pixels
+    )
+)
+st.plotly_chart(fig8)
 
 
 
