@@ -72,7 +72,7 @@ try:
     test_df['KOSDAQ_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSDAQ_Daily(%)'])).cumprod() - 1
     test_df['TWSE_Cumulative_Return'] = (1 + pd.to_numeric(test_df['TWSE_Daily(%)'])).cumprod() - 1
 
-    test_df['JP_LS'] = pd.to_numeric(test_df['JPN_Cum_Return(%)'].str.replace(',', ''), errors='coerce') - pd.to_numeric(test_df['NKY_Cumulative_Return'].str.replace(',', ''), errors='coerce') 
+    test_df['JP_LS'] = test_df['JPN_Cum_Return(%)']
     
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
