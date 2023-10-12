@@ -142,19 +142,36 @@ fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return(%)'], name='KR_Po
 fig2.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_LS'], mode='lines', name='KR_Port-BM'))
 
 fig2.update_xaxes(type='category', title_text='Date')
+fig2.update(
+    layout=dict(
+        width=950  # Set the width to 800 pixels
+    )
+)
 st.plotly_chart(fig2)
-
-fig6 = go.Figure()
-fig6.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Korea'))
-fig6.update_xaxes(type='category', title_text='Date')
-st.plotly_chart(fig6)
 
 fig7 = go.Figure()
 fig7.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cum_Return(%)'], mode='lines', name='Korea'))
 fig7.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSPI_Cumulative_Return'], mode='lines', name='Kospi'))
 fig7.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return'], mode='lines', name='Kosdaq'))
 fig7.update_xaxes(type='category', title_text='Date')
+fig7.update(
+    layout=dict(
+        width=900  # Set the width to 800 pixels
+    )
+)
 st.plotly_chart(fig7)
+
+fig6 = go.Figure()
+fig6.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Korea'))
+fig6.update_xaxes(type='category', title_text='Date')
+fig6.update(
+    layout=dict(
+        width=800  # Set the width to 800 pixels
+    )
+)
+st.plotly_chart(fig6)
+
+
 ######################################
 st.write('Taiwan Market')
 fig3 = go.Figure()
