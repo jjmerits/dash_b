@@ -102,7 +102,11 @@ fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS'], mode='lines', 
 
 # Update x-axis to treat 'DATES' as a date
 fig1.update_xaxes(type='category', title_text='Date')
-fig1.update_layout(width=width_size) 
+fig1.update(
+    layout=dict(
+        width=width_size  # Set the width to 800 pixels
+    )
+)
 st.plotly_chart(fig1)
 
 fig4 = go.Figure()
@@ -110,7 +114,7 @@ fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
 fig4.update_xaxes(type='category', title_text='Date')
 fig4.update(
     layout=dict(
-        width=100  # Set the width to 800 pixels
+        width=width_size  # Set the width to 800 pixels
     )
 )
 st.plotly_chart(fig4)
