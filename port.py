@@ -69,7 +69,7 @@ try:
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
-    test_df['JP_Port-BM'] = pd.to_numeric(test_df['JPN_Return(%'].str.replace(',', ''), errors='coerce') 
+    test_df['JP_LS'] = pd.to_numeric(test_df['JPN_Return(%'].str.replace(',', ''), errors='coerce') 
         
 except Exception as e:
     df = pd.DataFrame(columns=['No Excel Sheet Found'])
@@ -88,7 +88,7 @@ fig1 = go.Figure()
 
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
-fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_Port-BM'], mode='lines', name='JP_Port-BM'))
+fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_Port_LS'], mode='lines', name='JP_Port-BM'))
 
 # Update x-axis to treat 'DATES' as a date
 fig1.update_xaxes(type='category', title_text='Date')
