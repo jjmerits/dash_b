@@ -108,7 +108,7 @@ st.plotly_chart(fig1)
 fig4 = go.Figure()
 fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
 fig4.update_xaxes(type='category', title_text='Date')
-fig4.update_layout(width=width_size) 
+fig4.update_layout(width=600) 
 st.plotly_chart(fig4)
 
 fig5 = go.Figure()
