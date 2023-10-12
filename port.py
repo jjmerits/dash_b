@@ -89,7 +89,7 @@ except Exception as e:
 st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a layout with two columns
 
-
+width_size = 800
 # Create a time series bar chart
 st.write('Japan Market')
 fig1 = go.Figure()
@@ -102,18 +102,20 @@ fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS'], mode='lines', 
 
 # Update x-axis to treat 'DATES' as a date
 fig1.update_xaxes(type='category', title_text='Date')
-fig1.update_layout(width=800) 
+fig1.update_layout(width=width_size) 
 st.plotly_chart(fig1)
 
 fig4 = go.Figure()
 fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
 fig4.update_xaxes(type='category', title_text='Date')
+fig4.update_layout(width=width_size) 
 st.plotly_chart(fig4)
 
 fig5 = go.Figure()
 fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines', name='JP_Port'))
 fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='Nikkei'))
 fig5.update_xaxes(type='category', title_text='Date')
+fig5.update_layout(width=width_size) 
 st.plotly_chart(fig5)
 ####################################
 st.write('Korea Market')
