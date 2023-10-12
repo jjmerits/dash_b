@@ -104,6 +104,17 @@ fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS'], mode='lines', 
 fig1.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig1)
 
+fig4 = go.Figure()
+fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
+fig4.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig4)
+
+fig5 = go.Figure()
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines', name='JP_Port'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='Nikkei'))
+fig5.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig5)
+####################################
 st.write('Korea Market')
 fig2 = go.Figure()
 
@@ -115,6 +126,18 @@ fig2.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_LS'], mode='lines', 
 fig2.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig2)
 
+fig6 = go.Figure()
+fig6.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Korea'))
+fig6.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig6)
+
+fig7 = go.Figure()
+fig7.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cum_Return(%)'], mode='lines', name='Korea'))
+fig7.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSPI_Cumulative_Return'], mode='lines', name='Kospi'))
+fig7.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return'], mode='lines', name='Kosdaq'))
+fig7.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig7)
+######################################
 st.write('Taiwan Market')
 fig3 = go.Figure()
 
@@ -125,54 +148,65 @@ fig3.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_LS'], mode='lines', 
 fig3.update_xaxes(type='category', title_text='Date')
 st.plotly_chart(fig3)
 
-st.write('Port Size by Market (Won)')
+fig8 = go.Figure()
+fig8.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Taiwan'))
+fig8.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig8)
 
-fig4 = go.Figure()
-
-fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
-fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Korea'))
-fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Taiwan'))
-
-fig4.update_xaxes(type='category', title_text='Date')
-
-
-st.plotly_chart(fig4)
-
-
-st.write('Port Return(%)')
-
-fig5 = go.Figure()
-
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines', name='Japan'))
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cum_Return(%)'], mode='lines', name='Korea'))
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_Cum_Return(%)'], mode='lines', name='Taiwan'))
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'], mode='lines', name='PORT'))
-
-
-fig5.update_xaxes(type='category', title_text='Date')
-
-
-st.plotly_chart(fig5)
+fig9 = go.Figure()
+fig9.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_Cum_Return(%)'], mode='lines', name='Taiwan'))
+fig9.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TWSE_Cumulative_Return'], mode='lines', name='TWSE'))
+fig9.update_xaxes(type='category', title_text='Date')
+st.plotly_chart(fig9)
 
 
 
+##################################
+#st.write('Port Size by Market (Won)')
+
+#fig4 = go.Figure()
+
+#fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
+#fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Korea'))
+#fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Taiwan'))
+
+#fig4.update_xaxes(type='category', title_text='Date')
 
 
+#st.plotly_chart(fig4)
 
-st.write('Index Cumulative Return(%)')
+#######################################
+#st.write('Port Return(%)')
 
-fig6 = go.Figure()
+#fig5 = go.Figure()
 
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='Nikkei'))
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSPI_Cumulative_Return'], mode='lines', name='Kospi'))
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return'], mode='lines', name='Kosdaq'))
-fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TWSE_Cumulative_Return'], mode='lines', name='TWSE'))
-
-
-fig6.update_xaxes(type='category', title_text='Date')
+#fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines', name='Japan'))
+#fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_Cum_Return(%)'], mode='lines', name='Korea'))
+#fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_Cum_Return(%)'], mode='lines', name='Taiwan'))
+#fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'], mode='lines', name='PORT'))
 
 
-st.plotly_chart(fig6)
+#fig5.update_xaxes(type='category', title_text='Date')
+
+
+#st.plotly_chart(fig5)
+
+
+######################################
+#st.write('Index Cumulative Return(%)')
+
+#fig6 = go.Figure()
+
+#fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='Nikkei'))
+#fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSPI_Cumulative_Return'], mode='lines', name='Kospi'))
+#fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KOSDAQ_Cumulative_Return'], mode='lines', name='Kosdaq'))
+#fig6.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TWSE_Cumulative_Return'], mode='lines', name='TWSE'))
+
+
+#fig6.update_xaxes(type='category', title_text='Date')
+
+
+#st.plotly_chart(fig6)
 
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
