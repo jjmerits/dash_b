@@ -116,7 +116,7 @@ fig5.update_xaxes(type='category', title_text='Date')
 fig5.update_layout(width=width_size) 
 fig5.update(
     layout=dict(
-        width=950  # Set the width to 800 pixels
+        width=800  # Set the width to 800 pixels
     )
 )
 st.plotly_chart(fig5)
