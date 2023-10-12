@@ -98,6 +98,8 @@ fig1 = go.Figure()
 
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
+fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines'))
+fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines'))
 fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS'], mode='lines', name='JP_Port-BM'))
 
 # Update x-axis to treat 'DATES' as a date
