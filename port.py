@@ -67,7 +67,7 @@ try:
     test_df['TW_Cum_Return(%)'] = pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce').max()
     test_df['PORT_Cum_Return(%)'] = (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce')) /  pd.to_numeric(test_df['Size_Sum'].str.replace(',', ''), errors='coerce').max()
     
-    test_df['JP_LS'] = pd.to_numeric(test_df['JPN_Return(%'].str.replace(',', ''), errors='coerce') 
+    test_df['JP_LS'] = pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce') 
     
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
