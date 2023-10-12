@@ -104,7 +104,7 @@ fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS'], mode='lines', 
 fig1.update_xaxes(type='category', title_text='Date')
 fig1.update(
     layout=dict(
-        width=900  # Set the width to 800 pixels
+        width=950  # Set the width to 800 pixels
     )
 )
 st.plotly_chart(fig1)
