@@ -98,8 +98,6 @@ fig1 = go.Figure()
 
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
-fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines'))
-fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines'))
 fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS'], mode='lines', name='JP_Port-BM'))
 
 # Update x-axis to treat 'DATES' as a date
@@ -111,6 +109,18 @@ fig1.update(
 )
 st.plotly_chart(fig1)
 
+fig5 = go.Figure()
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines', name='JP_Port'))
+fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='Nikkei'))
+fig5.update_xaxes(type='category', title_text='Date')
+fig5.update_layout(width=width_size) 
+fig5.update(
+    layout=dict(
+        width=950  # Set the width to 800 pixels
+    )
+)
+st.plotly_chart(fig5)
+
 fig4 = go.Figure()
 fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
 fig4.update_xaxes(type='category', title_text='Date')
@@ -121,12 +131,7 @@ fig4.update(
 )
 st.plotly_chart(fig4)
 
-fig5 = go.Figure()
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JPN_Cum_Return(%)'], mode='lines', name='JP_Port'))
-fig5.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['NKY_Cumulative_Return'], mode='lines', name='Nikkei'))
-fig5.update_xaxes(type='category', title_text='Date')
-fig5.update_layout(width=width_size) 
-st.plotly_chart(fig5)
+
 ####################################
 st.write('Korea Market')
 fig2 = go.Figure()
