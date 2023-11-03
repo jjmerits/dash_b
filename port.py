@@ -106,7 +106,8 @@ try:
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
-    st.dataframe( test_df, use_container_width=True)
+    st.write(test_df, unsafe_allow_html=True)
+ 
         
 except Exception as e:
     df = pd.DataFrame(columns=['No Excel Sheet Found'])
