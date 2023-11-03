@@ -60,6 +60,9 @@ try:
     test_df = test_df[(test_df['DATES'].dt.dayofweek != 5) & (test_df['DATES'].dt.dayofweek != 6)]
     # Define the new column names as a list
     new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSDAQ_Daily(%)','TWSE', 'TWSE_Daily(%)','JPN_Size','KR_Size','TW_Size','JPN_Return','KR_Return','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)']
+    
+    test_df =  pd.to_numeric(test_df)
+
     # Assign the new column names to the DataFrame
     test_df.columns = new_column_names
     test_df['JPN_Cum_Return(%)'] = pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce').max()
