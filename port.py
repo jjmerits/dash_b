@@ -106,7 +106,7 @@ try:
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
-    st.dataframe( test_df['NKY_Daily(%)'], use_container_width=True)
+    st.dataframe( test_df, use_container_width=True)
         
 except Exception as e:
     df = pd.DataFrame(columns=['No Excel Sheet Found'])
