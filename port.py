@@ -61,7 +61,15 @@ try:
     # Define the new column names as a list
     new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSDAQ_Daily(%)','TWSE', 'TWSE_Daily(%)','JPN_Size','KR_Size','TW_Size','JPN_Return','KR_Return','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)']
     
-    test_df =  pd.to_numeric(test_df)
+    test_df['NKY_Daily(%)'] =   pd.to_numeric(test_df['NKY_Daily(%)'])
+    test_df['KOSPI_Daily(%)'] = pd.to_numeric(test_df['KOSPI_Daily(%)'])
+    test_df['KOSDAQ_Daily(%)'] = pd.to_numeric(test_df['KOSDAQ_Daily(%)'])
+    test_df['TWSE_Daily(%)'] = pd.to_numeric(test_df['TWSE_Daily(%)'])
+
+    test_df['JPN_Size'] = pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce')
+    test_df['KR_Size'] = pd.to_numeric(test_df['KR_Size'].str.replace(',', ''), errors='coerce')
+    test_df['TW_Size'] = pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce')
+   
 
     # Assign the new column names to the DataFrame
     test_df.columns = new_column_names
@@ -71,7 +79,6 @@ try:
     test_df['PORT_Cum_Return(%)'] = (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce')) /  pd.to_numeric(test_df['Size_Sum'].str.replace(',', ''), errors='coerce').max()
 
     test_df['NKY_Cumulative_Return'] = (1 + pd.to_numeric(test_df['NKY_Daily(%)'])).cumprod() - 1
-    test_df['NKY_Cumulative_Return'] = (1 + test_df['NKY_Daily(%)']).cumprod() - 1
     test_df['KOSPI_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSPI_Daily(%)'])).cumprod() - 1
     test_df['KOSDAQ_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSDAQ_Daily(%)'])).cumprod() - 1
     test_df['TWSE_Cumulative_Return'] = (1 + pd.to_numeric(test_df['TWSE_Daily(%)'])).cumprod() - 1
