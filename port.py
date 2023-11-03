@@ -71,6 +71,7 @@ try:
     test_df['PORT_Cum_Return(%)'] = (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce')) /  pd.to_numeric(test_df['Size_Sum'].str.replace(',', ''), errors='coerce').max()
 
     test_df['NKY_Cumulative_Return'] = (1 + pd.to_numeric(test_df['NKY_Daily(%)'])).cumprod() - 1
+    test_df['NKY_Cumulative_Return'] = (1 + test_df['NKY_Daily(%)']).cumprod() - 1
     test_df['KOSPI_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSPI_Daily(%)'])).cumprod() - 1
     test_df['KOSDAQ_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSDAQ_Daily(%)'])).cumprod() - 1
     test_df['TWSE_Cumulative_Return'] = (1 + pd.to_numeric(test_df['TWSE_Daily(%)'])).cumprod() - 1
