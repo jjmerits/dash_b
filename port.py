@@ -106,8 +106,8 @@ try:
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
 
-    test_df = test_df.to_html(escape=False,index=False)
-    st.write(test_df, unsafe_allow_html=True)
+    test_df['TW_LS'] = test_df['TW_LS'].to_html(escape=False,index=False)
+    st.write(test_df['TW_LS'], unsafe_allow_html=True)
  
         
 except Exception as e:
