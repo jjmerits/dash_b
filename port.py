@@ -61,15 +61,7 @@ try:
     # Define the new column names as a list
     new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSDAQ_Daily(%)','TWSE', 'TWSE_Daily(%)','JPN_Size','KR_Size','TW_Size','JPN_Return','KR_Return','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)']
     
-    test_df['NKY_Daily(%)'] =   pd.to_numeric(test_df['NKY_Daily(%)'])
-    test_df['KOSPI_Daily(%)'] = pd.to_numeric(test_df['KOSPI_Daily(%)'])
-    test_df['KOSDAQ_Daily(%)'] = pd.to_numeric(test_df['KOSDAQ_Daily(%)'])
-    test_df['TWSE_Daily(%)'] = pd.to_numeric(test_df['TWSE_Daily(%)'])
-
-    test_df['JPN_Size'] = pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce')
-    test_df['KR_Size'] = pd.to_numeric(test_df['KR_Size'].str.replace(',', ''), errors='coerce')
-    test_df['TW_Size'] = pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce')
-   
+  
 
     # Assign the new column names to the DataFrame
     test_df.columns = new_column_names
@@ -87,6 +79,16 @@ try:
     test_df['KR_LS'] = test_df['KR_Cum_Return(%)'] - (test_df['KOSPI_Cumulative_Return'] + test_df['KOSDAQ_Cumulative_Return'])/2
     test_df['TW_LS'] = test_df['TW_Cum_Return(%)'] - test_df['TWSE_Cumulative_Return']
 #######################################
+
+    test_df['NKY_Daily(%)'] =   pd.to_numeric(test_df['NKY_Daily(%)'])
+    test_df['KOSPI_Daily(%)'] = pd.to_numeric(test_df['KOSPI_Daily(%)'])
+    test_df['KOSDAQ_Daily(%)'] = pd.to_numeric(test_df['KOSDAQ_Daily(%)'])
+    test_df['TWSE_Daily(%)'] = pd.to_numeric(test_df['TWSE_Daily(%)'])
+
+    test_df['JPN_Size'] = pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce')
+    test_df['KR_Size'] = pd.to_numeric(test_df['KR_Size'].str.replace(',', ''), errors='coerce')
+    test_df['TW_Size'] = pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce')
+    
     test_df['NKY_Daily(%)_adj'] = test_df['NKY_Daily(%)']*(test_df['JPN_Size']/test_df['JPN_Size'].max())
     test_df['KOSPI_Daily(%)_adj'] = test_df['KOSPI_Daily(%)']*(test_df['KR_Size']/test_df['KR_Size'].max())
     test_df['KOSDAQ_Daily(%)_adj'] = test_df['KOSDAQ_Daily(%)']*(test_df['KR_Size']/test_df['KR_Size'].max())
