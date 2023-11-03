@@ -75,11 +75,20 @@ try:
     test_df['JP_LS'] = test_df['JPN_Cum_Return(%)'] - test_df['NKY_Cumulative_Return']
     test_df['KR_LS'] = test_df['KR_Cum_Return(%)'] - (test_df['KOSPI_Cumulative_Return'] + test_df['KOSDAQ_Cumulative_Return'])/2
     test_df['TW_LS'] = test_df['TW_Cum_Return(%)'] - test_df['TWSE_Cumulative_Return']
-
+#######################################
     test_df['NKY_Daily(%)_adj'] = test_df['NKY_Daily(%)']*(test_df['JPN_Size']/test_df['JPN_Size'].max())
     test_df['KOSPI_Daily(%)_adj'] = test_df['KOSPI_Daily(%)']*(test_df['KR_Size']/test_df['KR_Size'].max())
     test_df['KOSDAQ_Daily(%)_adj'] = test_df['KOSDAQ_Daily(%)']*(test_df['KR_Size']/test_df['KR_Size'].max())
     test_df['TWSE_Daily(%)_adj'] = test_df['TWSE_Daily(%)']*(test_df['TW_Size']/test_df['TWSize'].max())
+
+    test_df['NKY_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['NKY_Daily(%)_adj'])).cumprod() - 1
+    test_df['KOSPI_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['KOSPI_Daily(%)_adj'])).cumprod() - 1
+    test_df['KOSDAQ_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['KOSDAQ_Daily(%)_adj'])).cumprod() - 1
+    test_df['TWSE_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['TWSE_Daily(%)_adj'])).cumprod() - 1
+
+    test_df['JP_LS_adj'] = test_df['JPN_Cum_Return(%)'] - test_df['NKY_Cumulative_Return_adj']
+    test_df['KR_LS_adj'] = test_df['KR_Cum_Return(%)'] - (test_df['KOSPI_Cumulative_Return_adj'] + test_df['KOSDAQ_Cumulative_Return_adj'])/2
+    test_df['TW_LS_adj'] = test_df['TW_Cum_Return(%)'] - test_df['TWSE_Cumulative_Return_adj']
     
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
