@@ -126,7 +126,7 @@ fig1 = go.Figure()
 
 # Add bar traces for 'NKY' and 'KOSPI200'
 
-fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
+#fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)_adj'], name='NKY_Daily(%)_adj'))
 fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS_adj'], mode='lines', name='JP_Port-BM'))
