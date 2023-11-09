@@ -294,7 +294,7 @@ st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
 
 test_df = test_df.to_html(escape=False,index=False)
-test_df.write(df, unsafe_allow_html=True)
+test_df.write(test_df, unsafe_allow_html=True)
 
 
 
