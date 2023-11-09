@@ -105,6 +105,8 @@ try:
     
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
+    
+
 
 
  
@@ -291,6 +293,8 @@ st.plotly_chart(fig8)
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
 
+test_df = test_df.to_html(escape=False,index=False)
+test_df.write(df, unsafe_allow_html=True)
 
 
 
