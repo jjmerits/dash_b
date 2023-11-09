@@ -293,8 +293,7 @@ st.plotly_chart(fig8)
 st.write(df, unsafe_allow_html=True)
 #st.dataframe(df)
 
-test_df = test_df.to_html(escape=False,index=False)
-test_df.write(test_df, unsafe_allow_html=True)
+st.dataframe(test_df)
 
 
 
