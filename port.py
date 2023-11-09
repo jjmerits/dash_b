@@ -99,9 +99,9 @@ try:
     test_df['KOSDAQ_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['KOSDAQ_Daily(%)_adj'])).cumprod() - 1
     test_df['TWSE_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['TWSE_Daily(%)_adj'])).cumprod() - 1
 
-    #test_df['JP_LS_adj'] = test_df['JPN_Cum_Return(%)'] - test_df['NKY_Cumulative_Return_adj']
-    #test_df['KR_LS_adj'] = test_df['KR_Cum_Return(%)'] - (test_df['KOSPI_Cumulative_Return_adj'] + test_df['KOSDAQ_Cumulative_Return_adj'])/2
-    #test_df['TW_LS_adj'] = test_df['TW_Cum_Return(%)'] - test_df['TWSE_Cumulative_Return_adj']
+    test_df['JP_LS_adj'] = test_df['JPN_Cum_Return(%)'] - test_df['NKY_Cumulative_Return_adj']
+    test_df['KR_LS_adj'] = test_df['KR_Cum_Return(%)'] - (test_df['KOSPI_Cumulative_Return_adj'] + test_df['KOSDAQ_Cumulative_Return_adj'])/2
+    test_df['TW_LS_adj'] = test_df['TW_Cum_Return(%)'] - test_df['TWSE_Cumulative_Return_adj']
     
     #test_df['Total_Return(%)'] = test_df['Total_Return(%)'] 
     test_df['DATES'] = pd.to_datetime(test_df['DATES'])
