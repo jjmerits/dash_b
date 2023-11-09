@@ -58,7 +58,7 @@ try:
     # Filter out weekends (assuming Saturday and Sunday are weekends)
     test_df = test_df[(test_df['DATES'].dt.dayofweek != 5) & (test_df['DATES'].dt.dayofweek != 6)]
     # Define the new column names as a list
-    new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSDAQ_Daily(%)','TWSE', 'TWSE_Daily(%)','JPN_Size','KR_Size','TW_Size','JPN_Return','KR_Return','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)']
+    new_column_names = ['DATES','NKY', 'NKY_Daily(%)', 'KOSPI200', 'KOSPI_Daily(%)', 'KOSDAQ150', 'KOSDAQ_Daily(%)','TWSE', 'TWSE_Daily(%)','JPN_Size','KR_Size','TW_Size','JPN_Return','KR_Return','TW_Return','Size_Sum','JPN_Return(%)','KR_Return(%)','TW_Return(%)','NKY_Daily(%)_adj','KOSPI_Daily(%)_adj','KOSDAQ_Daily(%)_adj','TWSE_Daily(%)_adj']
     
   
 
@@ -84,15 +84,20 @@ try:
     test_df['KOSDAQ_Daily(%)'] = pd.to_numeric(test_df['KOSDAQ_Daily(%)'])
     test_df['TWSE_Daily(%)'] = pd.to_numeric(test_df['TWSE_Daily(%)'])
 
+    test_df['NKY_Daily(%)_adj'] = pd.to_numeric(test_df['NKY_Daily(%)_adj'])
+    test_df['KOSPI_Daily(%)_adj'] = pd.to_numeric(test_df['KOSPI_Daily(%)_adj'])
+    test_df['KOSDAQ_Daily(%)_adj']  = pd.to_numeric(test_df['KOSDAQ_Daily(%)_adj'])
+    test_df['TWSE_Daily(%)_adj'] = pd.to_numeric(test_df['TWSE_Daily(%)_adj'])
+    
     test_df['JPN_Size'] = pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce')
     test_df['KR_Size'] = pd.to_numeric(test_df['KR_Size'].str.replace(',', ''), errors='coerce')
     test_df['TW_Size'] = pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce')
 
-    test_df['JPN_Size}prev'] = test_df['JPN_Size'].shift(1)
-    test_df['NKY_Daily(%)_adj'] = test_df['NKY_Daily(%)']*(test_df['JPN_Size'].shift(1)/test_df['JPN_Size'].max())
-    test_df['KOSPI_Daily(%)_adj'] = test_df['KOSPI_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
-    test_df['KOSDAQ_Daily(%)_adj'] = test_df['KOSDAQ_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
-    test_df['TWSE_Daily(%)_adj'] = test_df['TWSE_Daily(%)']*(test_df['TW_Size'].shift(1)/test_df['TW_Size'].max())
+    # 포지션 1:1 대응 숏 유지시
+    #test_df['NKY_Daily(%)_adj'] = test_df['NKY_Daily(%)']*(test_df['JPN_Size'].shift(1)/test_df['JPN_Size'].max())
+    #test_df['KOSPI_Daily(%)_adj'] = test_df['KOSPI_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
+    #test_df['KOSDAQ_Daily(%)_adj'] = test_df['KOSDAQ_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
+    #test_df['TWSE_Daily(%)_adj'] = test_df['TWSE_Daily(%)']*(test_df['TW_Size'].shift(1)/test_df['TW_Size'].max())
 
     test_df['NKY_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['NKY_Daily(%)_adj'])).cumprod() - 1
     test_df['KOSPI_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['KOSPI_Daily(%)_adj'])).cumprod() - 1
