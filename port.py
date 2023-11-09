@@ -90,9 +90,9 @@ try:
 
 
     test_df['NKY_Daily(%)_adj'] = test_df['NKY_Daily(%)']*(test_df['JPN_Size'].shift(1)/test_df['JPN_Size'].max())
-    #test_df['KOSPI_Daily(%)_adj'] = test_df['KOSPI_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
-    #test_df['KOSDAQ_Daily(%)_adj'] = test_df['KOSDAQ_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
-    #test_df['TWSE_Daily(%)_adj'] = test_df['TWSE_Daily(%)']*(test_df['TW_Size'].shift(1)/test_df['TWSize'].max())
+    test_df['KOSPI_Daily(%)_adj'] = test_df['KOSPI_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
+    test_df['KOSDAQ_Daily(%)_adj'] = test_df['KOSDAQ_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
+    test_df['TWSE_Daily(%)_adj'] = test_df['TWSE_Daily(%)']*(test_df['TW_Size'].shift(1)/test_df['TWSize'].max())
 
     #test_df['NKY_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['NKY_Daily(%)_adj'])).cumprod() - 1
     #test_df['KOSPI_Cumulative_Return_adj'] = (1 + pd.to_numeric(test_df['KOSPI_Daily(%)_adj'])).cumprod() - 1
