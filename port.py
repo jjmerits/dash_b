@@ -89,7 +89,7 @@ try:
     test_df['TW_Size'] = pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce')
 
 
-    #test_df['NKY_Daily(%)_adj'] = test_df['NKY_Daily(%)']*(test_df['JPN_Size'].shift(1)/test_df['JPN_Size'].max())
+    test_df['NKY_Daily(%)_adj'] = test_df['NKY_Daily(%)']*(test_df['JPN_Size'].shift(1)/test_df['JPN_Size'].max())
     #test_df['KOSPI_Daily(%)_adj'] = test_df['KOSPI_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
     #test_df['KOSDAQ_Daily(%)_adj'] = test_df['KOSDAQ_Daily(%)']*(test_df['KR_Size'].shift(1)/test_df['KR_Size'].max())
     #test_df['TWSE_Daily(%)_adj'] = test_df['TWSE_Daily(%)']*(test_df['TW_Size'].shift(1)/test_df['TWSize'].max())
