@@ -157,7 +157,7 @@ performance = [
         "Port Sharp": (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std(),
         "L/S Port Sharp": - ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).std()
     },
-        {
+    {
         "Name": "Kosdaq150",
         "Return(%)": test_df['KOSDAQ_Cumulative_Return'].iloc[-1]*100,
         "std(%)": test_df['KOSDAQ_Daily(%)'].std()*100,
@@ -167,8 +167,8 @@ performance = [
         "Port Sharp":(pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).mean() /(pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std(),
         "L/S Port Sharp": - ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).std()
     },
-    },
-            {
+    
+    {
         "Name": "TWSE",
         "Return(%)": test_df['TWSE_Cumulative_Return'].iloc[-1]*100,
         "std(%)": test_df['TWSE_Daily(%)'].std()*100,
@@ -178,7 +178,7 @@ performance = [
         "Port Sharp": (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).std(),
         "L/S Port Sharp": - (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).std()
     },
-    }
+    
 ]
 performance_df = pd.DataFrame(performance)
 performance_df = performance_df.to_html(escape=False,index=False)
