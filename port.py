@@ -139,7 +139,7 @@ performance = [
         "Name": "Nikkei225",
         "Return(%)": test_df['NKY_Cumulative_Return'].iloc[-1]*100,
         "std(%)": test_df['NKY_Daily(%)'].std()*100,
-        "Sharp": test_df['NKY_Daily(%)'].std()*100 / test_df['NKY_Daily(%)'].std(),
+        "Sharp": test_df['NKY_Daily(%)'].mean() / test_df['NKY_Daily(%)'].std(),
         "Port Return(%)": test_df['JPN_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":(pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).std()*100,
         "Port Sharp": test_df['JPN_Cum_Return(%)'].iloc[-1] / (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).std(),
