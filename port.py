@@ -114,14 +114,14 @@ try:
     
 
 
-    test_df['NKY_down_return'] = test_df['NKY_Daily(%)s'][test_df['NKY_Daily(%)'] < 0]
-    test_df['KOSPI_down_return'] = test_df['KOSPI_Daily(%)s'][test_df['KOSPI_Daily(%)'] < 0]
-    test_df['KOSDAQ_down_return'] = test_df['KOSDAQ_Daily(%)s'][test_df['KOSDAQ_Daily(%)'] < 0]
-    test_df['TWSE_down_return'] = test_df['TWSE_Daily(%)s'][test_df['TWSE_Daily(%)'] < 0]
+    #test_df['NKY_down_return'] = test_df['NKY_Daily(%)s'][test_df['NKY_Daily(%)'] < 0]
+    #test_df['KOSPI_down_return'] = test_df['KOSPI_Daily(%)s'][test_df['KOSPI_Daily(%)'] < 0]
+    #test_df['KOSDAQ_down_return'] = test_df['KOSDAQ_Daily(%)s'][test_df['KOSDAQ_Daily(%)'] < 0]
+    #test_df['TWSE_down_return'] = test_df['TWSE_Daily(%)s'][test_df['TWSE_Daily(%)'] < 0]
 
-    test_df['JPN_down_return'] = test_df['JPN_Daily(%)s'][test_df['JPN_Daily(%)'] < 0]
-    test_df['KR_down_return'] = test_df['KR_Daily(%)s'][test_df['KR_Daily(%)'] < 0]
-    test_df['TW_down_return'] = test_df['TW_Daily(%)s'][test_df['TW_Daily(%)'] < 0]
+    #test_df['JPN_down_return'] = test_df['JPN_Daily(%)s'][test_df['JPN_Daily(%)'] < 0]
+    #test_df['KR_down_return'] = test_df['KR_Daily(%)s'][test_df['KR_Daily(%)'] < 0]
+    #test_df['TW_down_return'] = test_df['TW_Daily(%)s'][test_df['TW_Daily(%)'] < 0]
 
 
  
