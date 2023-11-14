@@ -123,6 +123,8 @@ except Exception as e:
 #st.title('Vs benchmark chart')
 st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a layout with two columns
+performance = { "Name": "Nikkei225". "Return":test_df['NKY_Cumulative_Return'].iloc[-1,], "std":test_df['NKY_Daily(%)'].std)
+st.write(performance)
 
 width_size = 800
 # Create a time series bar chart
