@@ -141,6 +141,15 @@ performance = [
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)": test_df['KR_Cum_Return(%)'].std()*100,
         "Port Sharp": test_df['KR_Cum_Return(%)'].iloc[-1] / test_df['KR_Cum_Return(%)'].std()
+    },
+        {
+        "Name": "Kosdaq150",
+        "Return(%)": test_df['KOSDAQ_Cumulative_Return'].iloc[-1]*100,
+        "std(%)": test_df['KOSDAQ_Daily(%)'].std()*100,
+        "Sharp": test_df['KOSDAQ_Cumulative_Return'].iloc[-1] / test_df['KOSDAQ_Daily(%)'].std(),
+        "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
+        "Port std(%)": test_df['KR_Cum_Return(%)'].std()*100,
+        "Port Sharp": test_df['KR_Cum_Return(%)'].iloc[-1] / test_df['KR_Cum_Return(%)'].std()
     }
 ]
 performance_df = pd.DataFrame(performance)
