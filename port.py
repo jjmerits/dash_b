@@ -172,6 +172,7 @@ performance = [
         "Port Return(%)": test_df['TW_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":  (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
         "Port Sharp": (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).std()
+    }
 ]
 performance_df = pd.DataFrame(performance)
 performance_df = performance_df.to_html(escape=False,index=False)
