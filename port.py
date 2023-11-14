@@ -127,20 +127,20 @@ performance = [
     {
         "Name": "Nikkei225",
         "Return": test_df['NKY_Cumulative_Return'].iloc[-1],
-        "std": [test_df['NKY_Daily(%)'].std()],
-        "Sharp": [test_df['NKY_Cumulative_Return'].iloc[-1] / test_df['NKY_Daily(%)'].std()],
-        "Port Return": [test_df['JPN_Cum_Return(%)'].iloc[-1]],
-        "Port std": [test_df['JPN_Cum_Return(%)'].std()],
-        "Port Sharp": [test_df['JPN_Cum_Return(%)'].iloc[-1] / test_df['JPN_Cum_Return(%)'].std()]
+        "std": test_df['NKY_Daily(%)'].std(),
+        "Sharp": test_df['NKY_Cumulative_Return'].iloc[-1] / test_df['NKY_Daily(%)'].std(),
+        "Port Return": test_df['JPN_Cum_Return(%)'].iloc[-1],
+        "Port std": test_df['JPN_Cum_Return(%)'].std(),
+        "Port Sharp": test_df['JPN_Cum_Return(%)'].iloc[-1] / test_df['JPN_Cum_Return(%)'].std()
     },
     {
-        "Name": ["Kospi200"],
-        "Return": [test_df['KOSPI_Cumulative_Return'].iloc[-1]],
-        "std": [test_df['KOSPI_Daily(%)'].std()],
-        "Sharp": [test_df['KOSPI_Cumulative_Return'].iloc[-1] / test_df['KOSPI_Daily(%)'].std()],
-        "Port Return": [test_df['KR_Cum_Return(%)'].iloc[-1]],
-        "Port std": [test_df['KR_Cum_Return(%)'].std()],
-        "Port Sharp": [test_df['KR_Cum_Return(%)'].iloc[-1] / test_df['KR_Cum_Return(%)'].std()]
+        "Name": "Kospi200",
+        "Return": test_df['KOSPI_Cumulative_Return'].iloc[-1],
+        "std": test_df['KOSPI_Daily(%)'].std(),
+        "Sharp": test_df['KOSPI_Cumulative_Return'].iloc[-1] / test_df['KOSPI_Daily(%)'].std(),
+        "Port Return": test_df['KR_Cum_Return(%)'].iloc[-1],
+        "Port std": test_df['KR_Cum_Return(%)'].std(),
+        "Port Sharp": test_df['KR_Cum_Return(%)'].iloc[-1] / test_df['KR_Cum_Return(%)'].std()
     }
 ]
 performance_df = pd.DataFrame(performance)
