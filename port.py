@@ -132,8 +132,7 @@ except Exception as e:
 # 데이터 표시
 #st.title('Vs benchmark chart')
 st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
-st.write((pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).mean())
-st.write(test_df['NKY_Daily(%)'].mean())
+
 # Create a layout with two columns
 
 
@@ -146,7 +145,7 @@ performance = [
         "Port Return(%)": test_df['JPN_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":(pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
         "Port Sharp": (pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce')).std()*math.sqrt(252),
-        "L/S Port Sharp": - (test_df['NKY_Daily(%)'] - (pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['NKY_Daily(%)'] - (pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
+        "L/S Port Sharp (100%)": - (test_df['NKY_Daily(%)'] - (pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['NKY_Daily(%)'] - (pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
     },
     {
         "Name": "Kospi200",
@@ -156,7 +155,7 @@ performance = [
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)": (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
         "Port Sharp": (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std()*math.sqrt(252),
-        "L/S Port Sharp": - ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
+        "L/S Port Sharp (100%)": - ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
     },
     {
         "Name": "Kosdaq150",
@@ -166,7 +165,7 @@ performance = [
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":  (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
         "Port Sharp":(pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).mean() /(pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std()*math.sqrt(252),
-        "L/S Port Sharp": - ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
+        "L/S Port Sharp (100%)": - ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
     },
     
     {
@@ -177,7 +176,7 @@ performance = [
         "Port Return(%)": test_df['TW_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":  (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
         "Port Sharp": (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).std()*math.sqrt(252),
-        "L/S Port Sharp": - (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
+        "L/S Port Sharp (100%)": - (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
     },
     
 ]
