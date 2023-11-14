@@ -124,7 +124,10 @@ except Exception as e:
 st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a layout with two columns
 performance = { "Name": ["Nikkei225"], "Return":[test_df['NKY_Cumulative_Return'].iloc[-1,]], "std":[test_df['NKY_Daily(%)'].std()], "Sharp":[test_df['NKY_Cumulative_Return'].iloc[-1,]/test_df['NKY_Daily(%)'].std()],
-               "Port Return":[test_df['JPN_Cum_Return(%)'].iloc[-1,]],"Port std":[test_df['JPN_Cum_Return(%)'].std()],"Port Sharp":[test_df['JPN_Cum_Return(%)'].iloc[-1,]/test_df['JPN_Cum_Return(%)'].std()]
+               "Port Return":[test_df['JPN_Cum_Return(%)'].iloc[-1,]],"Port std":[test_df['JPN_Cum_Return(%)'].std()],"Port Sharp":[test_df['JPN_Cum_Return(%)'].iloc[-1,]/test_df['JPN_Cum_Return(%)'].std()],
+               
+                "Name": ["Kospi200"], "Return":[test_df['KOSPI_Cumulative_Return'].iloc[-1,]], "std":[test_df['KOSPI_Daily(%)'].std()], "Sharp":[test_df['KOSPI_Cumulative_Return'].iloc[-1,]/test_df['KOSPI_Daily(%)'].std()],
+               "Port Return":[test_df['KR_Cum_Return(%)'].iloc[-1,]],"Port std":[test_df['KR_Cum_Return(%)'].std()],"Port Sharp":[test_df['KR_Cum_Return(%)'].iloc[-1,]/test_df['KR_Cum_Return(%)'].std(),
               }
 performance_df = pd.DataFrame(performance)
 performance_df = performance_df.to_html(escape=False,index=False)
@@ -132,7 +135,7 @@ performance_df = performance_df.to_html(escape=False,index=False)
 st.title('Port Vs Index Performance')
 st.write(performance_df, unsafe_allow_html=True)
 #st.dataframe(performance_df)
-st.write(performance)
+
 
 width_size = 800
 # Create a time series bar chart
