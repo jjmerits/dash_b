@@ -143,7 +143,7 @@ performance = [
         "std(%)": test_df['NKY_Daily(%)'].std()*100,
         "Sharp": test_df['NKY_Daily(%)'].mean() / test_df['NKY_Daily(%)'].std(),
         "Port Return(%)": test_df['JPN_Cum_Return(%)'].iloc[-1]*100,
-        "Port std(%)":(pd.to_numeric(test_df['JPN_Return(%'].str.replace(',', ''), errors='coerce')).std()*100,
+        "Port std(%)":(pd.to_numeric(test_df['JPN_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
         "Port Sharp": (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).mean() / (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).std(),
     },
     {
