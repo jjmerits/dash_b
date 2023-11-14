@@ -169,7 +169,7 @@ performance = [
         "Sharp": test_df['TWSE_Cumulative_Return'].iloc[-1] / test_df['TWSE_Daily(%)'].std(),
         "Port Return(%)": test_df['TW_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":  (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()*100,
-        "Port Sharp": t(pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).mean() / (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()*100
+        "Port Sharp": (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).mean() / (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()
     }
 ]
 performance_df = pd.DataFrame(performance)
