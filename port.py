@@ -189,7 +189,7 @@ performance = [
         "L/S Port Sharp (50%)": - (test_df['TWSE_Daily(%)']*0.5 - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252),
         "L/S Port Sharp (30%)": - (test_df['TWSE_Daily(%)']*0.3 - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
     }
-    }
+    
     
 ]
 performance_df = pd.DataFrame(performance)
