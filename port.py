@@ -150,12 +150,21 @@ performance = [
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)": test_df['KR_Cum_Return(%)'].std()*100,
         "Port Sharp": test_df['KR_Cum_Return(%)'].iloc[-1] / test_df['KR_Cum_Return(%)'].std()
+    },
+            {
+        "Name": "TWSE",
+        "Return(%)": test_df['TWSE_Cumulative_Return'].iloc[-1]*100,
+        "std(%)": test_df['TWSE_Daily(%)'].std()*100,
+        "Sharp": test_df['TWSE_Cumulative_Return'].iloc[-1] / test_df['TWSE_Daily(%)'].std(),
+        "Port Return(%)": test_df['TW_Cum_Return(%)'].iloc[-1]*100,
+        "Port std(%)": test_df['TW_Cum_Return(%)'].std()*100,
+        "Port Sharp": test_df['TW_Cum_Return(%)'].iloc[-1] / test_df['TW_Cum_Return(%)'].std()
     }
 ]
 performance_df = pd.DataFrame(performance)
 performance_df = performance_df.to_html(escape=False,index=False)
 
-st.title('Port Vs Index Performance')
+st.write('Port Vs Index Performance')
 st.write(performance_df, unsafe_allow_html=True)
 #st.dataframe(performance_df)
 
