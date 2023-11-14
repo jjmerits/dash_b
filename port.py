@@ -142,7 +142,7 @@ performance = [
         "Sharp": test_df['NKY_Daily(%)'].mean() / test_df['NKY_Daily(%)'].std(),
         "Port Return(%)": test_df['JPN_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":(pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).std()*100,
-        "Port Sharp": test_df['JPN_Cum_Return(%)'].iloc[-1] / (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).std(),
+        "Port Sharp": (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).mean() / (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['JPN_Size'].max() ).std(),
     },
     {
         "Name": "Kospi200",
@@ -151,7 +151,7 @@ performance = [
         "Sharp": test_df['KOSPI_Cumulative_Return'].iloc[-1] / test_df['KOSPI_Daily(%)'].std(),
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)": (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std()*100,
-        "Port Sharp": test_df['KR_Cum_Return(%)'].iloc[-1] / (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std(),
+        "Port Sharp": (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).mean() / (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std(),
     },
         {
         "Name": "Kosdaq150",
@@ -160,7 +160,7 @@ performance = [
         "Sharp": test_df['KOSDAQ_Cumulative_Return'].iloc[-1] / test_df['KOSDAQ_Daily(%)'].std(),
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":  (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std()*100,
-        "Port Sharp": test_df['KR_Cum_Return(%)'].iloc[-1] / (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std()
+        "Port Sharp": (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).mean() / (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std()
     },
             {
         "Name": "TWSE",
@@ -169,7 +169,7 @@ performance = [
         "Sharp": test_df['TWSE_Cumulative_Return'].iloc[-1] / test_df['TWSE_Daily(%)'].std(),
         "Port Return(%)": test_df['TW_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)":  (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()*100,
-        "Port Sharp": test_df['TW_Cum_Return(%)'].iloc[-1] / (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()*100
+        "Port Sharp": t(pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).mean() / (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()*100
     }
 ]
 performance_df = pd.DataFrame(performance)
