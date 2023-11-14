@@ -153,7 +153,7 @@ performance = [
         "Sharp": test_df['KOSPI_Daily(%)'].mean()  / test_df['KOSPI_Daily(%)'].std(),
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)": (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
-        "Port Sharp": (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std(),
+        "Port Sharp": (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std()
     },
         {
         "Name": "Kosdaq150",
