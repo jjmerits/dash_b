@@ -202,6 +202,7 @@ st.write(performance_df, unsafe_allow_html=True)
 
 width_size = 800
 # Create a time series bar chart
+st.title(' ')
 st.write('Japan Market')
 fig1 = go.Figure()
 
