@@ -152,8 +152,8 @@ performance = [
         "std(%)": test_df['KOSPI_Daily(%)'].std()*100,
         "Sharp": test_df['KOSPI_Daily(%)'].mean()  / test_df['KOSPI_Daily(%)'].std(),
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
-        "Port std(%)": (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std()*100,
-        "Port Sharp": (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).mean() / (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std(),
+        "Port std(%)": (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
+        "Port Sharp": (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std(),
     },
         {
         "Name": "Kosdaq150",
@@ -161,8 +161,8 @@ performance = [
         "std(%)": test_df['KOSDAQ_Daily(%)'].std()*100,
         "Sharp": test_df['KOSDAQ_Daily(%)'].mean()  / test_df['KOSDAQ_Daily(%)'].std(),
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
-        "Port std(%)":  (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std()*100,
-        "Port Sharp": (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).mean() / (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std()
+        "Port std(%)":  (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
+        "Port Sharp":(pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['KR_Size'].max() ).std()
     },
             {
         "Name": "TWSE",
@@ -170,8 +170,8 @@ performance = [
         "std(%)": test_df['TWSE_Daily(%)'].std()*100,
         "Sharp": test_df['TWSE_Daily(%)'].mean()  / test_df['TWSE_Daily(%)'].std(),
         "Port Return(%)": test_df['TW_Cum_Return(%)'].iloc[-1]*100,
-        "Port std(%)":  (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()*100,
-        "Port Sharp": (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).mean() / (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()
+        "Port std(%)":  (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).std()*100,
+        "Port Sharp": (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce')).mean() / (pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce').diff(1).dropna() / test_df['TW_Size'].max() ).std()
     }
 ]
 performance_df = pd.DataFrame(performance)
