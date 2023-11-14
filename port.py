@@ -132,7 +132,7 @@ except Exception as e:
 #st.title('Vs benchmark chart')
 st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a layout with two columns
-tt = "Port std(%)": pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1)
+tt = pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1)
 st.dataframe(tt)
 performance = [
     {
