@@ -121,8 +121,8 @@ try:
     test_df['JPN_down_return'] = test_df['JPN_Daily(%)s'][test_df['JPN_Daily(%)'] < 0]
     test_df['KR_down_return'] = test_df['KR_Daily(%)s'][test_df['KR_Daily(%)'] < 0]
     test_df['TW_down_return'] = test_df['TW_Daily(%)s'][test_df['TW_Daily(%)'] < 0]
-    
-    downside_deviation = downside_returns.std()
+
+
  
         
 except Exception as e:
@@ -137,12 +137,10 @@ performance = [
         "Name": "Nikkei225",
         "Return(%)": test_df['NKY_Cumulative_Return'].iloc[-1]*100,
         "std(%)": test_df['NKY_Daily(%)'].std()*100,
-        "Sharp": test_df['NKY_Cumulative_Return'].iloc[-1] / test_df['NKY_Daily(%)'].std(),
-        "Sortino": test_df['NKY_Cumulative_Return'].iloc[-1] / test_df['NKY_down_return'].std(),
+        "Sharp": test_df['NKY_Daily(%)'].std()*100 / test_df['NKY_Daily(%)'].std(),
         "Port Return(%)": test_df['JPN_Cum_Return(%)'].iloc[-1]*100,
-        "Port std(%)": test_df['JPN_Cum_Return(%)'].std()*100,
+        "Port std(%)": (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce').diff(1) / pd.to_numeric(test_df['JPN_Size'].str.replace(',', ''), errors='coerce').max()).std()*100,
         "Port Sharp": test_df['JPN_Cum_Return(%)'].iloc[-1] / test_df['JPN_Cum_Return(%)'].std(),
-        "Port Sortino": test_df['JPN_Cum_Return(%)'].iloc[-1] / test_df['JPN_down_return'].std()
     },
     {
         "Name": "Kospi200",
@@ -151,7 +149,6 @@ performance = [
         "Sharp": test_df['KOSPI_Cumulative_Return'].iloc[-1] / test_df['KOSPI_Daily(%)'].std(),
         "Port Return(%)": test_df['KR_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)": test_df['KR_Cum_Return(%)'].std()*100,
-        "Port Sharp": test_df['KR_Cum_Return(%)'].iloc[-1] / test_df['KR_Cum_Return(%)'].std()
     },
         {
         "Name": "Kosdaq150",
