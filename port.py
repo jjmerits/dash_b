@@ -125,8 +125,8 @@ st.write("9/5 수익률은 8/14일 부터의 누적 수익률")
 # Create a layout with two columns
 performance = [
     {
-        "Name": ["Nikkei225"],
-        "Return": [test_df['NKY_Cumulative_Return'].iloc[-1]],
+        "Name": "Nikkei225",
+        "Return": test_df['NKY_Cumulative_Return'].iloc[-1],
         "std": [test_df['NKY_Daily(%)'].std()],
         "Sharp": [test_df['NKY_Cumulative_Return'].iloc[-1] / test_df['NKY_Daily(%)'].std()],
         "Port Return": [test_df['JPN_Cum_Return(%)'].iloc[-1]],
