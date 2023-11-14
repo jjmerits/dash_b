@@ -173,8 +173,6 @@ performance = [
         "L/S Port Sharp (70%)": - ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2*0.7 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252),
         "L/S Port Sharp (50%)": - ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2*0.5 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / ((test_df['KOSPI_Daily(%)']+test_df['KOSDAQ_Daily(%)'])/2 - (pd.to_numeric(test_df['KR_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
     },
-    },
-    
     {
         "Name": "TWSE",
         "Return(%)": test_df['TWSE_Cumulative_Return'].iloc[-1]*100,
@@ -186,8 +184,7 @@ performance = [
         "L/S Port Sharp (100%)": - (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252),
         "L/S Port Sharp (70%)": - (test_df['TWSE_Daily(%)']*0.7 - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252),
         "L/S Port Sharp (50%)": - (test_df['TWSE_Daily(%)']*0.5 - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).mean() / (test_df['TWSE_Daily(%)'] - (pd.to_numeric(test_df['TW_Return(%)'].str.replace(',', ''), errors='coerce'))).std()*math.sqrt(252)
-    },
-    },
+    }
     
 ]
 performance_df = pd.DataFrame(performance)
