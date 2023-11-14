@@ -138,9 +138,11 @@ performance = [
         "Return(%)": test_df['NKY_Cumulative_Return'].iloc[-1]*100,
         "std(%)": test_df['NKY_Daily(%)'].std()*100,
         "Sharp": test_df['NKY_Cumulative_Return'].iloc[-1] / test_df['NKY_Daily(%)'].std(),
+        "Sortino": test_df['NKY_Cumulative_Return'].iloc[-1] / test_df['NKY_down_return'].std(),
         "Port Return(%)": test_df['JPN_Cum_Return(%)'].iloc[-1]*100,
         "Port std(%)": test_df['JPN_Cum_Return(%)'].std()*100,
-        "Port Sharp": test_df['JPN_Cum_Return(%)'].iloc[-1] / test_df['JPN_Cum_Return(%)'].std()
+        "Port Sharp": test_df['JPN_Cum_Return(%)'].iloc[-1] / test_df['JPN_Cum_Return(%)'].std(),
+        "Port Sortino": test_df['JPN_Cum_Return(%)'].iloc[-1] / test_df['JPN_down_return'].std()
     },
     {
         "Name": "Kospi200",
