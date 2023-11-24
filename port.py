@@ -75,9 +75,9 @@ try:
     test_df['KOSDAQ_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSDAQ_Daily(%)'])).cumprod() - 1
     test_df['TWSE_Cumulative_Return'] = (1 + pd.to_numeric(test_df['TWSE_Daily(%)'])).cumprod() - 1
 
-    test_df['JP_LS'] = test_df['JPN_Cum_Return(%)'] - test_df['NKY_Cumulative_Return']*1
-    test_df['KR_LS'] = test_df['KR_Cum_Return(%)'] - (test_df['KOSPI_Cumulative_Return'] + test_df['KOSDAQ_Cumulative_Return'])/2*1
-    test_df['TW_LS'] = test_df['TW_Cum_Return(%)'] - test_df['TWSE_Cumulative_Return']*1
+    test_df['JP_LS'] = test_df['JPN_Cum_Return(%)'] - test_df['NKY_Cumulative_Return']*0.5
+    test_df['KR_LS'] = test_df['KR_Cum_Return(%)'] - (test_df['KOSPI_Cumulative_Return'] + test_df['KOSDAQ_Cumulative_Return'])/2*0.5
+    test_df['TW_LS'] = test_df['TW_Cum_Return(%)'] - test_df['TWSE_Cumulative_Return']*0.5
 ####################################### 전일 포지션으로 숏 포지션 유지
 
     test_df['NKY_Daily(%)'] =   pd.to_numeric(test_df['NKY_Daily(%)'])
@@ -211,7 +211,7 @@ fig1 = go.Figure()
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)'], name='NKY225'))
 fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Return(%)'], name='JPN_Port_Return'))
 #fig1.add_trace(go.Bar(x=test_df['DATES'], y=test_df['NKY_Daily(%)_adj'], name='NKY_Daily(%)_adj'))
-fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS_adj'], mode='lines', name='JP_Port-BM'))
+fig1.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['JP_LS'], mode='lines', name='JP_Port-BM'))
 
 # Update x-axis to treat 'DATES' as a date
 fig1.update_xaxes(type='category', title_text='Date')
@@ -252,7 +252,7 @@ fig2 = go.Figure()
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSPI_Daily(%)'], name='KOSPI200'))
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Return(%)'], name='KR_Port_Return'))
-fig2.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_LS_adj'], mode='lines', name='KR_Port-BM'))
+fig2.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['KR_LS'], mode='lines', name='KR_Port-BM'))
 
 fig2.update_xaxes(type='category', title_text='Date')
 fig2.update(
@@ -291,7 +291,7 @@ fig3 = go.Figure()
 
 fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TWSE_Daily(%)'], name='TWSE'))
 fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Return(%)'], name='TW_Port_Return'))
-fig3.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_LS_adj'], mode='lines', name='TW_Port-BM'))
+fig3.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['TW_LS'], mode='lines', name='TW_Port-BM'))
 
 fig3.update_xaxes(type='category', title_text='Date')
 fig3.update(
