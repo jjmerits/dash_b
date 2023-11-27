@@ -56,9 +56,9 @@ try:
 
     df_style = df.style.apply(lambda row: ['background-color: lightgreen' if row['Port'] == 1 else '' for _, row in df.iterrows()], axis=1)
     #df['RETURN'] = pd.to_numeric(df['RETURN'])
-    df['RETURN'] = pd.to_numeric(df['RETURN'].str.replace('%', ''), errors='coerce')
+    #df['RETURN'] = pd.to_numeric(df['RETURN'].str.replace('%', ''), errors='coerce')
     # Apply the function to the 'A' column in the DataFrame and render as HTML with conditional formatting
-    df = df.style.apply(lambda x: np.where(x.name == 'RETURN', x.applymap(color_based_on_value), ''), axis=None).render()
+    #df = df.style.apply(lambda x: np.where(x.name == 'RETURN', x.applymap(color_based_on_value), ''), axis=None).render()
     
     df = df.astype(str)
 
