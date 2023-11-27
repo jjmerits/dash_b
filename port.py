@@ -36,6 +36,15 @@ url_1 = st.secrets.db_credentials.ADDRESS_1
 #excel_file_path =st.secrets.db_credentials.ADDRESS
 #sheet_name = 'dash'
 
+# Define a function to generate CSS rules based on the values in column 'A'
+def color_based_on_value(val):
+    if val < 0:
+        red_intensity = min(255, int(abs(val) * 5.1))  # Convert negative values to red (255 is the maximum intensity)
+        return f'color: rgb({255 - red_intensity}, 0, 0)'
+    else:
+        green_intensity = min(255, int(val * 2.55))  # Convert positive values to green (255 is the maximum intensity)
+        return f'color: rgb(0, {green_intensity}, 0)'
+    
 # Excel 파일 읽기
 try:
     #df = pd.read_excel(excel_file_path, sheet_name=sheet_name).fillna('')
@@ -47,6 +56,10 @@ try:
 
     df_style = df.style.apply(lambda row: ['background-color: lightgreen' if row['Port'] == 1 else '' for _, row in df.iterrows()], axis=1)
     df = df.astype(str)
+
+
+    # Apply the function to the 'A' column in the DataFrame and render as HTML with conditional formatting
+    df = df.style.apply(lambda x: np.where(x.name == 'RETURN', x.applymap(color_based_on_value), ''), axis=None).render()
     df = df.to_html(escape=False,index=False)
 
     test_df = pd.read_csv(url_1)
