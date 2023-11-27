@@ -55,13 +55,14 @@ try:
     df['Value'] = df['Value'].apply(lambda x: '{:,.0f}'.format(x) if isinstance(x, (int, float)) and not pd.isnull(x) else x)
 
     df_style = df.style.apply(lambda row: ['background-color: lightgreen' if row['Port'] == 1 else '' for _, row in df.iterrows()], axis=1)
-    df = df.astype(str)
-
 
     # Apply the function to the 'A' column in the DataFrame and render as HTML with conditional formatting
-    #df = df.style.apply(lambda x: np.where(x.name == 'RETURN', x.applymap(color_based_on_value), ''), axis=None).render()
-    df = df.to_html(escape=False,index=False)
+    df = df.style.apply(lambda x: np.where(x.name == 'RETURN', x.applymap(color_based_on_value), ''), axis=None).render()
+    
+    df = df.astype(str)
 
+    df = df.to_html(escape=False,index=False)
+    
     test_df = pd.read_csv(url_1)
     test_df.columns = test_df.iloc[0]
     test_df = test_df.iloc[1:]
