@@ -218,6 +218,11 @@ st.write(performance_df, unsafe_allow_html=True)
 width_size = 800
 # Create a time series bar chart
 st.title(' ')
+
+st.write('Port_Performance')
+fig0 = go.Figure()
+fig0.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'] , mode='lines', name='Port'))
+
 st.write('Japan Market')
 fig1 = go.Figure()
 
