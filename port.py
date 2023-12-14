@@ -84,7 +84,8 @@ try:
     test_df['KR_Cum_Return(%)'] = pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['KR_Size'].str.replace(',', ''), errors='coerce').max()
     test_df['TW_Cum_Return(%)'] = pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce') /  pd.to_numeric(test_df['TW_Size'].str.replace(',', ''), errors='coerce').max()
     test_df['PORT_Cum_Return(%)'] = (pd.to_numeric(test_df['JPN_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['KR_Return'].str.replace(',', ''), errors='coerce')+pd.to_numeric(test_df['TW_Return'].str.replace(',', ''), errors='coerce')) /  pd.to_numeric(test_df['Size_Sum'].str.replace(',', ''), errors='coerce').max()
-
+    test_df['PORT_daily_return(%)'] = df['PORT_Cum_Return(%)'].pct_change()
+    
     test_df['NKY_Cumulative_Return'] = (1 + pd.to_numeric(test_df['NKY_Daily(%)'])).cumprod() - 1
     test_df['KOSPI_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSPI_Daily(%)'])).cumprod() - 1
     test_df['KOSDAQ_Cumulative_Return'] = (1 + pd.to_numeric(test_df['KOSDAQ_Daily(%)'])).cumprod() - 1
@@ -221,7 +222,9 @@ st.title(' ')
 
 st.write('Port_Performance_Cum_Return(%)')
 fig0 = go.Figure()
-fig0.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'] , mode='lines', name='Port'))
+fig0.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'] , mode='lines', name='Port_Cumulative'))
+fig0.add_trace(go.Bar(x=test_df['DATES'], y=test_df['PORT_daily_return(%)'], name='Port_Return_Daily'))
+
 st.plotly_chart(fig0)
 st.write('Japan Market')
 fig1 = go.Figure()
