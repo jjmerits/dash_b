@@ -222,7 +222,7 @@ st.title(' ')
 st.write('Port_Performance')
 fig0 = go.Figure()
 fig0.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'] , mode='lines', name='Port'))
-
+st.plotly_chart(fig0)
 st.write('Japan Market')
 fig1 = go.Figure()
 
