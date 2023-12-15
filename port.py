@@ -228,7 +228,7 @@ width_size = 800
 # Create a time series bar chart
 st.title(' ')
 
-st.write('Port_Performance_Cum_Return(%)')
+st.write('포트폴리오 수익률,포지션 추이')
 fig0 = go.Figure()
 fig0.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'] , mode='lines', name='Port_Cumulative'))
 #fig0.add_trace(go.Bar(x=test_df['DATES'], y=test_df['PORT_daily_return(%)'], name='Port_Return_Daily'))
@@ -251,7 +251,7 @@ fig00.update(
 st.plotly_chart(fig00)
 
 #####################################################################
-st.write('Japan Market')
+st.write('Japan Market 수익률,포지션 추이')
 fig1 = go.Figure()
 
 # Add bar traces for 'NKY' and 'KOSPI200'
@@ -294,7 +294,7 @@ st.plotly_chart(fig4)
 
 
 ####################################
-st.write('Korea Market')
+st.write('Korea Market 수익률,포지션 추이')
 fig2 = go.Figure()
 
 fig2.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KOSDAQ_Daily(%)'], name='KOSDAQ150'))
@@ -334,7 +334,7 @@ st.plotly_chart(fig6)
 
 
 ######################################
-st.write('Taiwan Market')
+st.write('Taiwan Market 수익률,포지션 추이')
 fig3 = go.Figure()
 
 fig3.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TWSE_Daily(%)'], name='TWSE'))
