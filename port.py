@@ -59,6 +59,10 @@ try:
     #df['RETURN'] = pd.to_numeric(df['RETURN'].str.replace('%', ''), errors='coerce')
     # Apply the function to the 'A' column in the DataFrame and render as HTML with conditional formatting
     #df = df.style.apply(lambda x: np.where(x.name == 'RETURN', x.applymap(color_based_on_value), ''), axis=None).render()
+    
+    sum_by_ticker = df.groupby('Ticker').agg({'RETURN': 'sum', 'NAME': 'first','CLASSIFICATION_DESCRIPTION': 'first','CLASSIFICATION_DESCRIPTION': 'first'}).reset_index()
+    sorted_sum_by_value = sum_by_ticker.sort_values(by='RETURN', ascending=False)
+    
     df = df[df['IN']==1]
     df = df.astype(str)
 
