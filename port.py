@@ -64,7 +64,7 @@ try:
     sum_by_ticker = sum_by_ticker[sum_by_ticker['Ticker'] != '']
     sorted_sum_by_value = sum_by_ticker.sort_values(by='RETURN', ascending=False)
     sorted_sum_by_value = sorted_sum_by_value.to_html(escape=False,index=False)
-    sorted_sum_by_value['RETURN'] = sorted_sum_by_value['RETURN'].apply(add_percent)
+    #sorted_sum_by_value['RETURN'] = sorted_sum_by_value['RETURN'].apply(add_percent)
     
     df = df[df['IN']==1]
     #df['RETURN'] = df['RETURN'].apply(add_percent)
@@ -402,8 +402,9 @@ st.plotly_chart(fig8)
 
 
 #st.plotly_chart(fig6)
-
+st.write("현재 포트폴리오")
 st.write(df, unsafe_allow_html=True)
+st.write("종목별 누적 수익률")
 st.write(sorted_sum_by_value, unsafe_allow_html=True)
 
 #st.dataframe(df)
