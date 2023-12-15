@@ -404,6 +404,7 @@ st.plotly_chart(fig8)
 #st.plotly_chart(fig6)
 st.write("현재 포트폴리오")
 st.write(df, unsafe_allow_html=True)
+st.write(" ")
 st.write("종목별 누적 수익률")
 st.write(sorted_sum_by_value, unsafe_allow_html=True)
 
