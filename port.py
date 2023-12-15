@@ -234,7 +234,7 @@ fig0.add_trace(go.Scatter(x=test_df['DATES'], y=test_df['PORT_Cum_Return(%)'] , 
 #fig0.add_trace(go.Bar(x=test_df['DATES'], y=test_df['PORT_daily_return(%)'], name='Port_Return_Daily'))
 fig0.update(
     layout=dict(
-        width=950  # Set the width to 800 pixels
+        width=900  # Set the width to 800 pixels
     )
 )
 st.plotly_chart(fig0)
