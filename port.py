@@ -239,7 +239,6 @@ fig0.update(
 )
 st.plotly_chart(fig0)
 
-st.plotly_chart(fig5)
 
 fig00 = go.Figure()
 fig00.add_trace(go.Bar(x=test_df['DATES'], y=test_df['Size_Sum'], name='Position_Size'))
