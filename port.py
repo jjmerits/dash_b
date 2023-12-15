@@ -241,7 +241,7 @@ st.plotly_chart(fig0)
 
 
 fig00 = go.Figure()
-fig00.add_trace(go.Bar(x=test_df['DATES'], y=test_df['Size_Sum'], labels={'Size_Sum': 'Position Size'}))
+fig00.add_trace(go.Bar(x=test_df['DATES'], y=test_df['Size_Sum'],  name='Position_Size'))
 fig00.update_xaxes(type='category', title_text='Date')
 fig00.update(
     layout=dict(
