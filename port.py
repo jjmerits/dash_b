@@ -238,6 +238,20 @@ fig0.update(
     )
 )
 st.plotly_chart(fig0)
+
+st.plotly_chart(fig5)
+
+fig00 = go.Figure()
+fig00.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size']+test_df['KR_Size']+test_df['TW_Size'], name='Position_Size'))
+fig00.update_xaxes(type='category', title_text='Date')
+fig00.update(
+    layout=dict(
+        width=800  # Set the width to 800 pixels
+    )
+)
+st.plotly_chart(fig00)
+
+#####################################################################
 st.write('Japan Market')
 fig1 = go.Figure()
 
@@ -270,7 +284,7 @@ fig5.update(
 st.plotly_chart(fig5)
 
 fig4 = go.Figure()
-fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Japan'))
+fig4.add_trace(go.Bar(x=test_df['DATES'], y=test_df['JPN_Size'], name='Position_Size'))
 fig4.update_xaxes(type='category', title_text='Date')
 fig4.update(
     layout=dict(
@@ -310,7 +324,7 @@ fig7.update(
 st.plotly_chart(fig7)
 
 fig6 = go.Figure()
-fig6.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Korea'))
+fig6.add_trace(go.Bar(x=test_df['DATES'], y=test_df['KR_Size'], name='Position_Size'))
 fig6.update_xaxes(type='category', title_text='Date')
 fig6.update(
     layout=dict(
@@ -349,7 +363,7 @@ st.plotly_chart(fig9)
 
 
 fig8 = go.Figure()
-fig8.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Taiwan'))
+fig8.add_trace(go.Bar(x=test_df['DATES'], y=test_df['TW_Size'], name='Position_Size'))
 fig8.update_xaxes(type='category', title_text='Date')
 fig8.update(
     layout=dict(
