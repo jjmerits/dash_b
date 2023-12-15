@@ -155,7 +155,7 @@ except Exception as e:
 
 # 데이터 표시
 #st.title('Vs benchmark chart')
-st.write("9/5 수익률은 8/14일 부터의 누적 수익률 (수익률은 최대 포지션 기준")
+st.write("9/5 수익률은 8/14일 부터의 누적 수익률 (수익률은 최대 포지션 기준)")
 
 # Create a layout with two columns
 
