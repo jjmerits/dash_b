@@ -62,6 +62,7 @@ try:
     
     sum_by_ticker = df.groupby('Ticker').agg({'RETURN': 'sum', 'NAME': 'first','CLASSIFICATION_DESCRIPTION': 'first','CLASSIFICATION_DESCRIPTION': 'first'}).reset_index()
     sorted_sum_by_value = sum_by_ticker.sort_values(by='RETURN', ascending=False)
+    sorted_sum_by_value = sorted_sum_by_value.to_html(escape=False,index=False)
     
     df = df[df['IN']==1]
     df = df.astype(str)
@@ -400,6 +401,8 @@ st.plotly_chart(fig8)
 #st.plotly_chart(fig6)
 
 st.write(df, unsafe_allow_html=True)
+st.write(sorted_sum_by_value, unsafe_allow_html=True)
+
 #st.dataframe(df)
 
 #st.dataframe(test_df)
