@@ -61,7 +61,7 @@ try:
     #df = df.style.apply(lambda x: np.where(x.name == 'RETURN', x.applymap(color_based_on_value), ''), axis=None).render()
     
     sum_by_ticker = df.groupby('Ticker').agg({'RETURN': 'sum', 'NAME': 'first','CLASSIFICATION_DESCRIPTION': 'first','CLASSIFICATION_DESCRIPTION': 'first'}).reset_index()
-    sum_by_ticker[sum_by_ticker['Ticker'] != ' ']
+    sum_by_ticker = sum_by_ticker[sum_by_ticker['Ticker'] != '']
     sorted_sum_by_value = sum_by_ticker.sort_values(by='RETURN', ascending=False)
     sorted_sum_by_value = sorted_sum_by_value.to_html(escape=False,index=False)
     
